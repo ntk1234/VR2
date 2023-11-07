@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
     {
         fireTimer += Time.deltaTime;
 
-        if (Input.GetButton("Fire1") && fireTimer >= fireRate)
+        if (Input.GetButtonDown("Fire1") && fireTimer >= fireRate)
         {
             Fire(); // 执行射击操作
             fireTimer = 0f; // 重置射击计时器
