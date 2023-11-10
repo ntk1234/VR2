@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2552654490609264511}
   - component: {fileID: 4873203864487774525}
   - component: {fileID: 3007942907246526388}
-  - component: {fileID: 6969050043800003613}
   - component: {fileID: 115602830918960049}
   - component: {fileID: 6866589660833574738}
+  - component: {fileID: 2223435381474553037}
   m_Layer: 31
   m_Name: Shark 1 (2)
   m_TagString: Untagged
@@ -86,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6969050043800003613
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024807124667102285}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 1.5111526, z: -0.6783147}
 --- !u!114 &115602830918960049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +125,29 @@ MonoBehaviour:
   maxTurnAngle: 30
   minPauseTime: 1
   maxPauseTime: 3
+--- !u!136 &2223435381474553037
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024807124667102285}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.45
+  m_Height: 7.13276
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.5111527, z: -0.84637976}
 --- !u!1 &2645062741059506272
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +159,6 @@ GameObject:
   - component: {fileID: 468984537066861838}
   - component: {fileID: 3209279711506749701}
   - component: {fileID: 8284409874928866487}
-  - component: {fileID: 1837648756049523594}
   - component: {fileID: 2133003746008348339}
   - component: {fileID: 388990180104295111}
   m_Layer: 31
@@ -232,27 +233,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1837648756049523594
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2645062741059506272}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 1.5111526, z: -0.6783147}
 --- !u!114 &2133003746008348339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,9 +283,9 @@ GameObject:
   - component: {fileID: 8535265655307596135}
   - component: {fileID: 803994080991005521}
   - component: {fileID: 6346932177312659368}
-  - component: {fileID: 3677732437614575717}
   - component: {fileID: 3677732437614575716}
   - component: {fileID: 6387681794203553257}
+  - component: {fileID: 8203203227801063642}
   m_Layer: 31
   m_Name: Shark 1
   m_TagString: Untagged
@@ -378,27 +358,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3677732437614575717
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4622948576541377396}
-  m_Material: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 1.5111526, z: -0.6783147}
 --- !u!114 &3677732437614575716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +397,29 @@ MonoBehaviour:
   maxTurnAngle: 30
   minPauseTime: 1
   maxPauseTime: 3
+--- !u!136 &8203203227801063642
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4622948576541377396}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.45
+  m_Height: 7.13276
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.5111527, z: -0.84637976}
 --- !u!1 &5362822317103515594
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,9 +466,9 @@ GameObject:
   - component: {fileID: 7183334778884671926}
   - component: {fileID: 7406224553462977439}
   - component: {fileID: 3610174111652346166}
-  - component: {fileID: 4123578556991650634}
   - component: {fileID: 7589370037397851907}
   - component: {fileID: 5403945121411134602}
+  - component: {fileID: 314826694104958305}
   m_Layer: 31
   m_Name: Shark 1 (1)
   m_TagString: Untagged
@@ -559,27 +541,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4123578556991650634
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6377947381789639879}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2
-  m_Center: {x: 0, y: 1.5111526, z: -0.6783147}
 --- !u!114 &7589370037397851907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,3 +580,26 @@ MonoBehaviour:
   maxTurnAngle: 30
   minPauseTime: 1
   maxPauseTime: 3
+--- !u!136 &314826694104958305
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377947381789639879}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.45
+  m_Height: 7.13276
+  m_Direction: 2
+  m_Center: {x: 0, y: 1.5111527, z: -0.84637976}
