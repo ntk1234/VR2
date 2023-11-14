@@ -5,7 +5,8 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public float maxHealth = 100f; // 物件的最大生命值
-    public float currentHealth; // 物件的當前生命值
+    public float currentHealth
+        ; // 物件的當前生命值
 
     private void Start()
     {
