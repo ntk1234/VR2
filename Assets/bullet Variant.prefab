@@ -4836,6 +4836,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1186951446116947383, guid: e8e623d7ac119a542a56704ea0d4991d, type: 3}
+      propertyPath: damage
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5597267437608919066, guid: e8e623d7ac119a542a56704ea0d4991d, type: 3}
       propertyPath: m_Name
       value: bullet Variant
