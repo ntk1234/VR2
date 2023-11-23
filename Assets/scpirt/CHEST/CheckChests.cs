@@ -3,38 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CheckChests: MonoBehaviour
+public class CheckChests : MonoBehaviour
 {
     public GameObject chestA;
     public GameObject chestB;
     public GameObject chestC;
+    public GameObject chestMap;
 
     public UnityEvent onAllChestsOpened;
 
-    private bool chestAOpened = false;
-    private bool chestBOpened = false;
-    private bool chestCOpened = false;
+
+
 
     // 寶箱打開時調用此方法
-    public void ChestOpened(GameObject chest)
+    public void Update()
     {
-        if (chest == chestA)
+        if (chestA.activeSelf)
         {
-            chestAOpened = true;
-        }
-        else if (chest == chestB)
-        {
-            chestBOpened = true;
-        }
-        else if (chest == chestC)
-        {
-            chestCOpened = true;
-        }
+            chestMap.SetActive(true)
+            ; }
+        if (chestB.activeSelf)
+        {; }
+        if (chestC.activeSelf)
+        {; }
 
         // 檢查所有寶箱是否都已打開
-        if (chestAOpened && chestBOpened && chestCOpened)
+        if (chestA.activeSelf && chestB.activeSelf && chestC.activeSelf)
         {
             // 觸發離開事件
+            Debug.Log("事件ON");
             onAllChestsOpened.Invoke();
         }
     }

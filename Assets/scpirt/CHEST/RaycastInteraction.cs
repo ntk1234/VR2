@@ -7,10 +7,36 @@ public class RaycastInteraction: MonoBehaviour
     public float raycastDistance = 3f;  // 射線的距離
     public LayerMask interactableLayer; // 可交互物體的圖層
     public KeyCode interactKey = KeyCode.F; // 調查的按鍵
+    public int shotPower = 20;
+    public float shotDistance = 10.0f;
+    public delegate void InteractDelegate(GameObject interactableObject); // 委派定義
+    public static event InteractDelegate OnInteract; // 調查事件
 
     private void Update()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction * shotDistance, Color.red);
+        RaycastHit hit;
         if (Input.GetKeyDown(interactKey))
+        {
+            if (Physics.Raycast(ray, out hit, shotDistance))
+            {
+                if (hit.collider != null && hit.collider.attachedRigidbody != null)
+                {
+                    GameObject interactedObject = hit.collider.gameObject;
+                    if (interactedObject.CompareTag("Chest"))
+                    {
+                        OnInteract?.Invoke(interactedObject);
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("沒東西");
+            }
+        }
+
+        /*if (Input.GetKeyDown(interactKey))
         {
             // 發出射線檢查是否有可交互物體
             RaycastHit hit;
@@ -24,7 +50,9 @@ public class RaycastInteraction: MonoBehaviour
                     InteractWithChest(interactedObject);
                 }
             }
-        }
+        }*/
+
+
     }
 
     private void InteractWithChest(GameObject chest)
