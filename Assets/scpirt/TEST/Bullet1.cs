@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet1: MonoBehaviour
 {
     public int damage = 10; // 子弹的伤害值
                             // 其他子弹的属性和行为

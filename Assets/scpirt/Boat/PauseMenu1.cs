@@ -18,6 +18,6 @@ public class PauseMenu1 : MonoBehaviour
 	public void ExitGame()
 	{
 		Time.timeScale = 1;
-		/*SceneManager.LoadScene("title");*/
+		SceneManager.LoadScene("title");
 	}
 }
