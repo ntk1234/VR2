@@ -30,6 +30,7 @@ public class InteractableObject : MonoBehaviour
             // 在這裡實現與物品調查相關的邏輯，例如顯示調查視窗、播放音效等
             Debug.Log("調查物品：" + interactableObject.name);
             chest.SetActive(true);
+            
         }
     }
 }

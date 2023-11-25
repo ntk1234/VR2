@@ -3,19 +3,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class EventSystemChecker : MonoBehaviour
+namespace UnityStandardAssets.Utility
 {
-    //public GameObject eventSystem;
-
-	// Use this for initialization
-	void Awake ()
-	{
-	    if(!FindObjectOfType<EventSystem>())
+    public class EventSystemChecker : MonoBehaviour
+    {
+        // Awake is called when the script instance is being loaded
+        private void Awake()
         {
-           //Instantiate(eventSystem);
-            GameObject obj = new GameObject("EventSystem");
-            obj.AddComponent<EventSystem>();
-            obj.AddComponent<StandaloneInputModule>().forceModuleActive = true;
+            if (!FindObjectOfType<EventSystem>())
+            {
+                GameObject obj = new GameObject("EventSystem");
+                obj.AddComponent<EventSystem>();
+                obj.AddComponent<StandaloneInputModule>().enabled = true;
+            }
         }
-	}
+    }
 }

@@ -24,7 +24,7 @@ public class RaycastInteraction: MonoBehaviour
                 if (hit.collider != null && hit.collider.attachedRigidbody != null)
                 {
                     GameObject interactedObject = hit.collider.gameObject;
-                    if (interactedObject.CompareTag("Chest"))
+                    if (interactedObject.CompareTag("Chest")||(interactedObject.CompareTag("Boat")))
                     {
                         OnInteract?.Invoke(interactedObject);
                     }

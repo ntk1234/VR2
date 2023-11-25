@@ -12,6 +12,7 @@ TagManager:
   - Water
   - Obstacle
   - Chest
+  - Boat
   layers:
   - Default
   - TransparentFX
