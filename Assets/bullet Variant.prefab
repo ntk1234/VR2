@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6851021, y: 1.6851021, z: 1.6851021}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9179278697726492674}
@@ -55,6 +55,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6f57e3384acd5dc45bb4df479f10466b, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,7 +115,7 @@ ParticleSystem:
   m_GameObject: {fileID: 5529391242183881657}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 60
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -188,7 +189,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2.07
+      scalar: 2.12
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -736,7 +737,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 6
+    type: 13
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -4006,7 +4007,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
@@ -4062,7 +4063,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minVertexDistance: 0.2
+    minVertexDistance: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
     ribbonCount: 1
@@ -4836,6 +4837,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 255952680996395071, guid: e8e623d7ac119a542a56704ea0d4991d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1186951446116947383, guid: e8e623d7ac119a542a56704ea0d4991d, type: 3}
       propertyPath: damage
       value: 25
@@ -4870,15 +4875,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 325cc6d693640144cb13242730a74001, type: 2}
     - target: {fileID: 8287956169253658819, guid: e8e623d7ac119a542a56704ea0d4991d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39896
+      value: 0.68295485
       objectReference: {fileID: 0}
     - target: {fileID: 8287956169253658819, guid: e8e623d7ac119a542a56704ea0d4991d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39896
+      value: 0.68295485
       objectReference: {fileID: 0}
     - target: {fileID: 8287956169253658819, guid: e8e623d7ac119a542a56704ea0d4991d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.39896
+      value: 0.68295485
       objectReference: {fileID: 0}
     - target: {fileID: 8287956169253658819, guid: e8e623d7ac119a542a56704ea0d4991d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4993,6 +4998,14 @@ PrefabInstance:
     - target: {fileID: 2821388436759655003, guid: ac8f267ad797ec343a181e17d89e7e70, type: 3}
       propertyPath: ShapeModule.type
       value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821388436759655003, guid: ac8f267ad797ec343a181e17d89e7e70, type: 3}
+      propertyPath: TrailModule.mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821388436759655003, guid: ac8f267ad797ec343a181e17d89e7e70, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2821388436759655003, guid: ac8f267ad797ec343a181e17d89e7e70, type: 3}
       propertyPath: ShapeModule.arc.mode
@@ -5116,15 +5129,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5928882288734833250, guid: ac8f267ad797ec343a181e17d89e7e70, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.818321
       objectReference: {fileID: 0}
     - target: {fileID: 5928882288734833250, guid: ac8f267ad797ec343a181e17d89e7e70, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.1471814
       objectReference: {fileID: 0}
     - target: {fileID: 5928882288734833250, guid: ac8f267ad797ec343a181e17d89e7e70, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.2837279
       objectReference: {fileID: 0}
     - target: {fileID: 5928882288734833250, guid: ac8f267ad797ec343a181e17d89e7e70, type: 3}
       propertyPath: m_LocalPosition.x

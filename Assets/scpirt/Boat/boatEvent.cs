@@ -35,9 +35,9 @@ public class boatEvent : MonoBehaviour
             {
 
                 eventMap1.SetActive(true);
+                text2();
                 btn.SetActive(false);
                 btn2.SetActive(true);
-                text2();
              PM.PauseGame();
             }
 

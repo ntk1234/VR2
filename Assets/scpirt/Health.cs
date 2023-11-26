@@ -1,33 +1,70 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 100f; // ª«¥óªº³Ì¤j¥Í©R­È
-    public float currentHealth
-        ; // ª«¥óªº·í«e¥Í©R­È
+    public float maxHealth = 100f; // ç‰©ä»¶çš„æœ€å¤§ç”Ÿå‘½å€¼
+    public float currentHealth;
+    public PauseMenu1 PM1;
+    public Text killShark;
+    public Text killShark2;
+    public GameObject gameOver;
+    public int fishCount = 0;  // é±¼çš„è®¡æ•°å™¨
+    public int sharkCount = 0;
+    // ç‰©ä»¶çš„ç•¶å‰ç”Ÿå‘½å€¼
 
     private void Start()
     {
-        currentHealth = maxHealth; // ªì©l¤Æ·í«e¥Í©R­È¬°³Ì¤j¥Í©R­È
-    }
+        currentHealth = maxHealth; // åˆå§‹åŒ–ç•¶å‰ç”Ÿå‘½å€¼ç‚ºæœ€å¤§ç”Ÿå‘½å€¼
 
-    // ©Ó¨ü¶Ë®`
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage; // ´î¤Ö·í«e¥Í©R­È
-
-        if (currentHealth <= 0f)
+        Fish[] fishes = FindObjectsOfType<Fish>();
+        foreach (Fish fish in fishes)
         {
-            Die(); // ¦pªG·í«e¥Í©R­È¤p©óµ¥©ó 0¡A«h°õ¦æ¦º¤`°Ê§@
+            fish.OnFishCaught += IncreaseFishCount;
+        }
+        Fish1[] fishes1 = FindObjectsOfType<Fish1>();
+        foreach (Fish1 fish1 in fishes1)
+        {
+            fish1.OnSharkKill += IncreaseSharkCount;
         }
     }
 
-    // ¦º¤`
+    // æ‰¿å—å‚·å®³
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage; // æ¸›å°‘ç•¶å‰ç”Ÿå‘½å€¼
+
+        if (currentHealth <= 0f)
+        {
+            Die(); // å¦‚æœç•¶å‰ç”Ÿå‘½å€¼å°æ–¼ç­‰æ–¼ 0ï¼Œå‰‡åŸ·è¡Œæ­»äº¡å‹•ä½œ
+        }
+    }
+    private void IncreaseFishCount()
+    {
+        fishCount++;  // æ•è·åˆ°é±¼ï¼Œè®¡æ•°å™¨åŠ 1
+        Debug.Log("Fish caught! Total count: " + fishCount);
+        
+       
+    }
+    private void IncreaseSharkCount()
+    {
+      ;
+        sharkCount++;
+        Debug.Log("Kill shark! Total count: " + sharkCount);
+        killShark2.text = "Kill shark:" + sharkCount;
+    }
+
+
+    // æ­»äº¡
     private void Die()
     {
-        // ¦b³o¸Ì¹ê²{ª«¥ó¦º¤`®Éªº°Ê§@
-        Debug.Log("Player died!");// ¦¹³B¥u¬O¾P·´ª«¥ó¡A±z¥i¥H®Ú¾Ú¹CÀ¸»İ¨D¶i¦æ¬ÛÀ³ªº¾Ş§@
+        // åœ¨é€™è£¡å¯¦ç¾ç‰©ä»¶æ­»äº¡æ™‚çš„å‹•ä½œ
+        Debug.Log("Player died!");
+        // æ­¤è™•åªæ˜¯éŠ·æ¯€ç‰©ä»¶ï¼Œæ‚¨å¯ä»¥æ ¹æ“šéŠæˆ²éœ€æ±‚é€²è¡Œç›¸æ‡‰çš„æ“ä½œ
+        gameOver.SetActive(true);
+        killShark.text = "Kill shark:" + sharkCount;
+        PM1.PauseGame();
     }
 }
