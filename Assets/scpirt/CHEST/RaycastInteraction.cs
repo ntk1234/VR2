@@ -17,7 +17,7 @@ public class RaycastInteraction: MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * shotDistance, Color.red);
         RaycastHit hit;
-        if (Input.GetKeyDown(interactKey))
+        if (Input.GetButtonDown("Find"))
         {
             if (Physics.Raycast(ray, out hit, shotDistance))
             {

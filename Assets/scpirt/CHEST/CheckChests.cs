@@ -20,6 +20,8 @@ public class CheckChests : MonoBehaviour
 
     public PauseMenu1 PM;
 
+    public MouseLock2 ML2;
+
 
 
     private bool isUpdateInputEnabledA = true;
@@ -35,7 +37,7 @@ public class CheckChests : MonoBehaviour
             {
 
                 chestMap.SetActive(true);
-            
+                ML2.UnlockMouse();
                 PM.PauseGame();
             }
            ; }
@@ -45,7 +47,7 @@ public class CheckChests : MonoBehaviour
             {
 
                 chestMap1.SetActive(true);
-
+                ML2.UnlockMouse();
                 PM.PauseGame();
             }
             ; }
@@ -55,7 +57,7 @@ public class CheckChests : MonoBehaviour
             {
 
                 chestMap2.SetActive(true);
-
+                ML2.UnlockMouse();
                 PM.PauseGame();
             }
             ;

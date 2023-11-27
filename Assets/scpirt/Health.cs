@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
     public GameObject gameOver;
     public int fishCount = 0;  // 鱼的计数器
     public int sharkCount = 0;
+    public MouseLock2 ML2;
     // 物件的當前生命值
 
     private void Start()
@@ -65,6 +66,7 @@ public class Health : MonoBehaviour
         // 此處只是銷毀物件，您可以根據遊戲需求進行相應的操作
         gameOver.SetActive(true);
         killShark.text = "Kill shark:" + sharkCount;
+        ML2.UnlockMouse();
         PM1.PauseGame();
     }
 }

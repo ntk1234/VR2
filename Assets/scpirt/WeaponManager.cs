@@ -18,7 +18,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetButtonDown("ChangeW"))
         {
             SwitchWeapon();
         }

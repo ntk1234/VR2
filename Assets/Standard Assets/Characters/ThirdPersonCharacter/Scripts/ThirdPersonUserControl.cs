@@ -7,7 +7,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class ThirdPersonUserControl : MonoBehaviour
     {
-        private ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
+        public ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
@@ -40,7 +40,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
-           
+            
+            if (Input.GetButton("Fire3"))
+            {
+                m_Character.m_MoveSpeedMultiplier = 2f;
+                Debug.Log("RUN");
+            }
+            else
+            {
+                m_Character.m_MoveSpeedMultiplier = 1f;
+                Debug.Log("RUN2");
+            }
+
         }
 
         
@@ -66,10 +77,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Move = v*Vector3.forward + h*Vector3.right;
             }
 
-           
+
 #if !MOBILE_INPUT
             // walk speed multiplier
-            if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 2f;
+        
+           
+         
+              
 #endif
 
             // pass all parameters to the character control script

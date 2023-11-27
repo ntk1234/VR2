@@ -20,7 +20,7 @@ public class boatEvent : MonoBehaviour
 
     public GameObject btn2;
 
-
+    public MouseLock2 ML2;
     // Update is called once per frame
     public void Update()
     {
@@ -28,17 +28,19 @@ public class boatEvent : MonoBehaviour
             if (isTextEnabled1)
             {
             eventMap1.SetActive(true);
-            text1();
+             ML2.UnlockMouse();
+             text1();
              PM.PauseGame();
             }
             if (isLeave)
             {
 
                 eventMap1.SetActive(true);
-                text2();
                 btn.SetActive(false);
                 btn2.SetActive(true);
-             PM.PauseGame();
+                text2();
+                ML2.UnlockMouse();
+                PM.PauseGame();
             }
 
 

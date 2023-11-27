@@ -15,6 +15,7 @@ public class CheckGameOver : MonoBehaviour
     public bool isCheckGO = true;
     public PauseMenu1 PM1;
     public float checkHealth ;
+    public MouseLock2 ML2;
 
     // Start is called before the first frame update
     private void Start()
@@ -50,8 +51,9 @@ public class CheckGameOver : MonoBehaviour
                     Debug.Log("Player died!");
                     gameOver.SetActive(true);
                     killShark.text = "Kill shark:" + sharkCount;
+                    ML2.UnlockMouse();
                     PM1.PauseGame();
-
+                    
                 }
 
                ;
