@@ -4,7 +4,7 @@ using UnityEngine;
 using Valve.VR;
 
 
-public class LaserPointer : MonoBehaviour
+public class LaserPointer1: MonoBehaviour
 {
     public SteamVR_Input_Sources type;
     public SteamVR_Behaviour_Pose controllerPose;
@@ -21,6 +21,8 @@ public class LaserPointer : MonoBehaviour
     GameObject laser;
     Transform laserTransform;
     Vector3 hitPoint;
+
+    public Shooting shooting;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +58,10 @@ public class LaserPointer : MonoBehaviour
 
         if (teleport.GetStateUp(type) && shouldTeleport)
         {
-            Teleport();
+            
+            shooting.Fire(); // 執行射擊操作
+            shooting.fireTimer = 0f; // 重置射擊計時器
+            shooting.currentBullets--; // 減少子彈數量
         }
     }
 

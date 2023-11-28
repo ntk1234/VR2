@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PickupObject : MonoBehaviour
 {
