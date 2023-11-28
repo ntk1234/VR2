@@ -20,7 +20,7 @@ public class CharacterFloat : MonoBehaviour
     private void Update()
     {
         // 检测指定按键的按下
-        if (Input.GetKeyDown(floatKey))
+        if (Input.GetButtonDown("Jump"))
         {
             // 开始浮动
             isFloating = true;

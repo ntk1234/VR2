@@ -35,7 +35,7 @@ public class Shooting : MonoBehaviour
             currentBullets--; // 減少子彈數量
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && currentBullets < maxBullets)
+        if (Input.GetButtonDown("Reload") && currentBullets < maxBullets)
         {
             StartCoroutine(Reload()); // 執行重新裝填
         }
