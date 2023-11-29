@@ -24,11 +24,23 @@ public class WeaponManager1: MonoBehaviour
 
     private void Update()
     {
-        Vector2 trackpadInput = GetAxis(type);
-        if (trackpadInput!= Vector2.zero)
+        Vector2 trackpadInput = teleport.GetAxis(type);
+        if (trackpadInput.y > 0.5f)
         {
-            teleport.axis = fixedPosition;
+            SwitchWeapon();
+            // 在這裡執行上滑動的相應操作
+            Debug.Log("上滑動");
         }
+
+        // 偵測下滑動
+        if (trackpadInput.y < -0.5f)
+        {
+            // 在這裡執行下滑動的相應操作
+            Debug.Log("下滑動");
+        }
+
+
+
         if (Input.GetButtonDown("ChangeW"))
         {
             SwitchWeapon();
@@ -60,5 +72,9 @@ public class WeaponManager1: MonoBehaviour
         weapons[weaponIndex].SetActive(true);
         weapons2[weaponIndex2].SetActive(true);
         ui[uiIndex].SetActive(true);
+    }
+    private void OnTeleportChanged(SteamVR_Action_Vector2 fromAction, SteamVR_Input_Sources fromSource, Vector2 axis, Vector2 delta)
+    {
+        // 在這裡處理軌跡板輸入值的變化
     }
 }

@@ -22,8 +22,8 @@ public class Shooting : MonoBehaviour
 
     public SteamVR_Input_Sources type;
     public SteamVR_Behaviour_Pose controllerPose;
-    public SteamVR_Action_Boolean teleport;
-      public SteamVR_Action_Boolean trigger;
+        public SteamVR_Action_Vector2 teleport;
+        public SteamVR_Action_Boolean trigger;
 
         public void Start()
         {
@@ -35,8 +35,9 @@ public class Shooting : MonoBehaviour
     public void Update()
         {
             fireTimer += Time.deltaTime;
+            Vector2 trackpadInput = teleport.GetAxis(type);
 
-        
+
             if (!isReloading && Input.GetButtonDown("Fire1") && fireTimer >= fireRate && currentBullets > 0)
             {
                 Fire(); // 執行射擊操作
@@ -55,7 +56,7 @@ public class Shooting : MonoBehaviour
                 StartCoroutine(Reload()); // 執行重新裝填
             }
 
-            if (!isReloading && teleport.GetState(type) && currentBullets < maxBullets)
+            if (!isReloading && (trackpadInput.y < -0.5f) && currentBullets < maxBullets)
             {
                 StartCoroutine(Reload()); // 執行重新裝填
             }
