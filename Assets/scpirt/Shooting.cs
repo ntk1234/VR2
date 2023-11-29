@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
-    public class Shooting : MonoBehaviour
+namespace s
+{ 
+public class Shooting : MonoBehaviour
     {
         public GameObject bulletPrefab;          // 子彈預置物
         public Transform bulletSpawnPoint;       // 子彈生成點
@@ -17,7 +20,12 @@ using UnityEngine;
 
     public Shooting shooting;
 
-    public void Start()
+    public SteamVR_Input_Sources type;
+    public SteamVR_Behaviour_Pose controllerPose;
+    public SteamVR_Action_Boolean teleport;
+      public SteamVR_Action_Boolean trigger;
+
+        public void Start()
         {
             fireTimer = fireRate; // 初始時刻可以立即射擊
             currentBullets = maxBullets; // 初始時擁有最大子彈數量
@@ -28,7 +36,14 @@ using UnityEngine;
         {
             fireTimer += Time.deltaTime;
 
+        
             if (!isReloading && Input.GetButtonDown("Fire1") && fireTimer >= fireRate && currentBullets > 0)
+            {
+                Fire(); // 執行射擊操作
+                fireTimer = 0f; // 重置射擊計時器
+                currentBullets--; // 減少子彈數量
+            }
+            if (!isReloading && trigger.GetState(type) && fireTimer >= fireRate && currentBullets > 0)
             {
                 Fire(); // 執行射擊操作
                 fireTimer = 0f; // 重置射擊計時器
@@ -36,6 +51,11 @@ using UnityEngine;
             }
 
             if (Input.GetButtonDown("Reload") && currentBullets < maxBullets)
+            {
+                StartCoroutine(Reload()); // 執行重新裝填
+            }
+
+            if (!isReloading && teleport.GetState(type) && currentBullets < maxBullets)
             {
                 StartCoroutine(Reload()); // 執行重新裝填
             }
@@ -68,4 +88,4 @@ using UnityEngine;
             get { return currentBullets; }
         }
     }
-
+}

@@ -8,6 +8,7 @@ public class ControllerAction : MonoBehaviour
     public SteamVR_Input_Sources type;
     public SteamVR_Action_Boolean teleport;
     public SteamVR_Action_Boolean grab;
+    public SteamVR_Action_Boolean trigger;
 
     // Update is called once per frame
     void Update()
@@ -21,6 +22,10 @@ public class ControllerAction : MonoBehaviour
         {
             print("Grab " + type);
         }
+        if (GetTriggerDown())
+        {
+            print("trigger " + type);
+        }
     }
 
     public bool GetTeleportDown()
@@ -32,5 +37,8 @@ public class ControllerAction : MonoBehaviour
     {
         return grab.GetState(type);
     }
-
+    public bool GetTriggerDown()
+    {
+        return trigger.GetStateDown(type);
+    }
 }

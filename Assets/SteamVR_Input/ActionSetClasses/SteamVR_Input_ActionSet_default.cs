@@ -81,6 +81,14 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Boolean Tri
+        {
+            get
+            {
+                return SteamVR_Actions.default_Tri;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get

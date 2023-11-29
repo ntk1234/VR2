@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using s;
 public class nerNUMshow : MonoBehaviour
 {
     public Text netNumber;

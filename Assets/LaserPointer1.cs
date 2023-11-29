@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using s;
 
-
-public class LaserPointer1: MonoBehaviour
+public class LaserPointer1: MonoBehaviour 
 {
     public SteamVR_Input_Sources type;
     public SteamVR_Behaviour_Pose controllerPose;
@@ -58,10 +58,8 @@ public class LaserPointer1: MonoBehaviour
 
         if (teleport.GetStateUp(type) && shouldTeleport)
         {
-            
-            shooting.Fire(); // 執行射擊操作
-            shooting.fireTimer = 0f; // 重置射擊計時器
-            shooting.currentBullets--; // 減少子彈數量
+            /*
+            Teleport(); // 減少子彈數量?\*/
         }
     }
 
