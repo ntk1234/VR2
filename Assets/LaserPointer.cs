@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using UnityEngine.UI;
 
 
 public class LaserPointer : MonoBehaviour
@@ -9,6 +10,7 @@ public class LaserPointer : MonoBehaviour
     public SteamVR_Input_Sources type;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean teleport;
+    public SteamVR_Action_Boolean tri;
     public GameObject laserPrefab;
     public Transform cameraRigTransform;
     public GameObject teleportReticlePrefab;
@@ -17,10 +19,15 @@ public class LaserPointer : MonoBehaviour
     public Transform headTransform;
     public Vector3 teleportReticleOffset;
     public LayerMask teleportMask;
+    public LayerMask FindMask;
     private bool shouldTeleport;
     GameObject laser;
     Transform laserTransform;
     Vector3 hitPoint;
+    public delegate void InteractDelegate(GameObject interactableObject); // 委派定義
+    public static event InteractDelegate OnInteract;
+
+    public LayerMask uiLayerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -48,16 +55,54 @@ public class LaserPointer : MonoBehaviour
                 shouldTeleport = true;
             }
         }
+
         else
         {
             laser.SetActive(false);
             reticle.SetActive(false);
         }
+        if (tri.GetState(type))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(controllerPose.transform.position,
+                                transform.forward, out hit, 100, FindMask))
+            {
+                GameObject interactedObject = hit.collider.gameObject;
+                if (interactedObject.CompareTag("Chest") || (interactedObject.CompareTag("Boat")))
+                {
+                    OnInteract?.Invoke(interactedObject);
+                }
+
+            }
+        }
+        else
+        {
+            Debug.Log("沒東西");
+            laser.SetActive(false);
+            reticle.SetActive(false);
+        }
+
+      
+       
 
         if (teleport.GetStateUp(type) && shouldTeleport)
         {
             Teleport();
         }
+
+        if (tri.GetStateDown(type))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, uiLayerMask))
+            {
+                GameObject hitObject = hit.collider.gameObject;
+                if (hitObject.GetComponent<Button>())
+                {
+                    hitObject.GetComponent<Button>().onClick.Invoke();
+                }
+            }
+        }
+
     }
 
 

@@ -17,8 +17,9 @@ public class Shooting : MonoBehaviour
         public  float fireTimer;                  // 射擊計時器
         public int currentBullets;               // 目前子彈數量
         public bool isReloading;                  // 是否正在重新裝填
+        public bool isVR ;
 
-    public Shooting shooting;
+        public Shooting shooting;
 
     public SteamVR_Input_Sources type;
     public SteamVR_Behaviour_Pose controllerPose;
@@ -30,35 +31,43 @@ public class Shooting : MonoBehaviour
             fireTimer = fireRate; // 初始時刻可以立即射擊
             currentBullets = maxBullets; // 初始時擁有最大子彈數量
             isReloading = false; // 初始時未在重新裝填
+            isVR = UnityEngine.XR.XRSettings.isDeviceActive;
         }
 
     public void Update()
         {
             fireTimer += Time.deltaTime;
             Vector2 trackpadInput = teleport.GetAxis(type);
+           
+
+            if (!isVR)
+            {
+                if (!isReloading && Input.GetButtonDown("Fire1") && fireTimer >= fireRate && currentBullets > 0)
+                {
+                    Fire(); // 執行射擊操作
+                    fireTimer = 0f; // 重置射擊計時器
+                    currentBullets--; // 減少子彈數量
+                }
 
 
-            if (!isReloading && Input.GetButtonDown("Fire1") && fireTimer >= fireRate && currentBullets > 0)
-            {
-                Fire(); // 執行射擊操作
-                fireTimer = 0f; // 重置射擊計時器
-                currentBullets--; // 減少子彈數量
-            }
-            if (!isReloading && trigger.GetState(type) && fireTimer >= fireRate && currentBullets > 0)
-            {
-                Fire(); // 執行射擊操作
-                fireTimer = 0f; // 重置射擊計時器
-                currentBullets--; // 減少子彈數量
-            }
-
-            if (Input.GetButtonDown("Reload") && currentBullets < maxBullets)
-            {
-                StartCoroutine(Reload()); // 執行重新裝填
+                if (Input.GetButtonDown("Reload") && currentBullets < maxBullets)
+                {
+                    StartCoroutine(Reload()); // 執行重新裝填
+                }
             }
 
-            if (!isReloading && (trackpadInput.y < -0.5f) && currentBullets < maxBullets)
+            if (isVR)
             {
-                StartCoroutine(Reload()); // 執行重新裝填
+                if (!isReloading && trigger.GetState(type) && fireTimer >= fireRate && currentBullets > 0)
+                {
+                    Fire(); // 執行射擊操作
+                    fireTimer = 0f; // 重置射擊計時器
+                    currentBullets--; // 減少子彈數量
+                }
+                if ((trackpadInput.y < -0.5f) && currentBullets < maxBullets)
+                {
+                    StartCoroutine(Reload()); // 執行重新裝填
+                }
             }
         }
 

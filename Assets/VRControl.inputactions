@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "select",
+                    "type": "Button",
+                    "id": "0309fd58-978c-468a-a576-a9a673a8ef54",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -39,7 +48,7 @@
                 {
                     "name": "up",
                     "id": "ca30cf9a-ae64-469c-96ac-fe2bf45023bf",
-                    "path": "<XRController>{RightHand}/devicePosition/x",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -50,7 +59,7 @@
                 {
                     "name": "down",
                     "id": "c52d6f82-5170-45de-8a45-88ed70a4ed8b",
-                    "path": "<XRController>{RightHand}/devicePosition/z",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -61,7 +70,7 @@
                 {
                     "name": "left",
                     "id": "bc0d4482-8042-4710-85a5-1e97371ef9fb",
-                    "path": "<XRController>{RightHand}/deviceRotation/x",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -72,7 +81,7 @@
                 {
                     "name": "right",
                     "id": "96ee7477-6b9d-48a0-b36f-84fdcd6279cc",
-                    "path": "<XRController>{RightHand}/deviceRotation/y",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -82,8 +91,19 @@
                 },
                 {
                     "name": "",
-                    "id": "4d69557a-d2bd-4723-9e89-058d87af2e3f",
-                    "path": "",
+                    "id": "d1307361-d7ec-4425-bbd7-1a1526017eba",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d77590e0-bf16-40f7-a825-b06ffcf867fc",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

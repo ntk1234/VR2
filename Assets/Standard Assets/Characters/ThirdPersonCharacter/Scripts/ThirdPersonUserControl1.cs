@@ -1,19 +1,24 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using Valve.VR;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
     [RequireComponent(typeof (ThirdPersonCharacter))]
-    public class ThirdPersonUserControl1 : MonoBehaviour
+    public class ThirdPersonUserControl1: MonoBehaviour
     {
-        private ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
+        public ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
         private Transform m_Cam;                  // A reference to the main camera in the scenes transform
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
+        public float runspeed = 2f;
+        public SteamVR_Behaviour_Pose controllerPose;
+        public SteamVR_Input_Sources type;
 
+        public SteamVR_Action_Vector2 teleport;
         private void Start()
         {
             // get the transform of the main camera
@@ -39,7 +44,18 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
-           
+            
+            if (Input.GetButton("Fire3"))
+            {
+                m_Character.m_MoveSpeedMultiplier = 2f;
+                Debug.Log("RUN");
+            }
+            else
+            {
+                m_Character.m_MoveSpeedMultiplier = 1f;
+                Debug.Log("RUN2");
+            }
+
         }
 
         
@@ -48,8 +64,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private void FixedUpdate()
         {
             // read inputs
-            float h = CrossPlatformInputManager.GetAxis("Horizontal2");
-            float v = CrossPlatformInputManager.GetAxis("Vertical2");
+            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            float v = CrossPlatformInputManager.GetAxis("Vertical");
+
+            
+            Vector2 trackpadInput = teleport.GetAxis(type);
+            h = trackpadInput.y;
+
+            v = trackpadInput.x;
+
             bool crouch = Input.GetKey(KeyCode.C);
 
             // calculate move direction to pass to character
@@ -65,10 +88,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Move = v*Vector3.forward + h*Vector3.right;
             }
 
-           
+
 #if !MOBILE_INPUT
             // walk speed multiplier
-            if (Input.GetKey(KeyCode.LeftShift)) m_Move *= 0.5f;
+        
+           
+         
+              
 #endif
 
             // pass all parameters to the character control script
