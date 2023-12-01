@@ -97,11 +97,11 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean RRR
+        public virtual SteamVR_Action_Boolean R
         {
             get
             {
-                return SteamVR_Actions.default_RRR;
+                return SteamVR_Actions.default_R;
             }
         }
         

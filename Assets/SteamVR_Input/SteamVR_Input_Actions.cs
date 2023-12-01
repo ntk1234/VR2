@@ -37,7 +37,7 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_default_Teleport2;
         
-        private static SteamVR_Action_Boolean p_default_RRR;
+        private static SteamVR_Action_Boolean p_default_R;
         
         private static SteamVR_Action_Vibration p_default_Haptic;
         
@@ -121,11 +121,11 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean default_RRR
+        public static SteamVR_Action_Boolean default_R
         {
             get
             {
-                return SteamVR_Actions.p_default_RRR.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_default_R.GetCopy<SteamVR_Action_Boolean>();
             }
         }
         
@@ -150,7 +150,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_Tri,
                     SteamVR_Actions.default_Teleport2,
-                    SteamVR_Actions.default_RRR,
+                    SteamVR_Actions.default_R,
                     SteamVR_Actions.default_Haptic};
             Valve.VR.SteamVR_Input.actionsIn = new Valve.VR.ISteamVR_Action_In[] {
                     SteamVR_Actions.default_Teleport,
@@ -163,7 +163,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_Tri,
                     SteamVR_Actions.default_Teleport2,
-                    SteamVR_Actions.default_RRR};
+                    SteamVR_Actions.default_R};
             Valve.VR.SteamVR_Input.actionsOut = new Valve.VR.ISteamVR_Action_Out[] {
                     SteamVR_Actions.default_Haptic};
             Valve.VR.SteamVR_Input.actionsVibration = new Valve.VR.SteamVR_Action_Vibration[] {
@@ -177,7 +177,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_Tri,
                     SteamVR_Actions.default_Teleport2,
-                    SteamVR_Actions.default_RRR};
+                    SteamVR_Actions.default_R};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[0];
             Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[] {
                     SteamVR_Actions.default_Teleport};
@@ -193,7 +193,7 @@ namespace Valve.VR
                     SteamVR_Actions.default_SnapTurnRight,
                     SteamVR_Actions.default_Tri,
                     SteamVR_Actions.default_Teleport2,
-                    SteamVR_Actions.default_RRR};
+                    SteamVR_Actions.default_R};
         }
         
         private static void PreInitActions()
@@ -208,7 +208,7 @@ namespace Valve.VR
             SteamVR_Actions.p_default_SnapTurnRight = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/SnapTurnRight")));
             SteamVR_Actions.p_default_Tri = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/Tri")));
             SteamVR_Actions.p_default_Teleport2 = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/Teleport2")));
-            SteamVR_Actions.p_default_RRR = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/RRR")));
+            SteamVR_Actions.p_default_R = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/default/in/R")));
             SteamVR_Actions.p_default_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/default/out/Haptic")));
         }
     }

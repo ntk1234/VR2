@@ -19,12 +19,12 @@ public class Shooting : MonoBehaviour
         public bool isReloading;                  // 是否正在重新裝填
         public bool isVR ;
 
-        public Shooting shooting;
+       /* public Shooting shooting;
 
     public SteamVR_Input_Sources type;
     public SteamVR_Behaviour_Pose controllerPose;
         public SteamVR_Action_Vector2 teleport;
-        public SteamVR_Action_Boolean trigger;
+        public SteamVR_Action_Boolean trigger;*/
 
         public void Start()
         {
@@ -37,7 +37,7 @@ public class Shooting : MonoBehaviour
     public void Update()
         {
             fireTimer += Time.deltaTime;
-            Vector2 trackpadInput = teleport.GetAxis(type);
+           /* Vector2 trackpadInput = teleport.GetAxis(type);*/
            
 
             
@@ -49,12 +49,12 @@ public class Shooting : MonoBehaviour
                     currentBullets--; // 減少子彈數量
                 }
 
-            if (!isReloading && trigger.GetState(type) && fireTimer >= fireRate && currentBullets > 0)
+           /*if (!isReloading && trigger.GetState(type) && fireTimer >= fireRate && currentBullets > 0)
             {
                 Fire(); // 執行射擊操作
                 fireTimer = 0f; // 重置射擊計時器
                 currentBullets--; // 減少子彈數量
-            }
+            }*/
 
             if (Input.GetButtonDown("Reload") && currentBullets < maxBullets)
                 {

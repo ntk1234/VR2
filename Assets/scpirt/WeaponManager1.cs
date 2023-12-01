@@ -28,11 +28,15 @@ public class WeaponManager1 : MonoBehaviour
     {
        /* Vector2 trackpadInput = teleport.GetAxis(type);*/
 
-        if (!touchpadPressed && teleport2.GetState(type))
+        if (!touchpadPressed && teleport2.GetStateDown(type))
         {
             /*touchpadPressed = true;*/
             SwitchWeapon();
             Debug.Log("Up swipe");
+        }
+        if (Input.GetButtonDown("ChangeW"))
+        {
+            SwitchWeapon();
         }
 
         /*if (trackpadInput.y <= 0.5f)
