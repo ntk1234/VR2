@@ -59,29 +59,21 @@
             },
             {
                "inputs" : {
-                  "center" : {
-                     "output" : "/actions/default/in/teleport"
-                  },
-                  "east" : {
-                     "output" : "/actions/default/in/snapturnright"
-                  },
-                  "north" : {
-                     "output" : "/actions/default/in/teleport"
-                  },
-                  "south" : {
-                     "output" : "/actions/default/in/teleport"
-                  },
-                  "west" : {
-                     "output" : "/actions/default/in/snapturnleft"
+                  "click" : {
+                     "output" : "/actions/default/in/tri"
                   }
                },
-               "mode" : "dpad",
-               "parameters" : {
-                  "deadzone_pct" : "90",
-                  "overlap_pct" : "15",
-                  "sub_mode" : "click"
+               "mode" : "button",
+               "path" : "/user/hand/left/input/trigger"
+            },
+            {
+               "inputs" : {
+                  "position" : {
+                     "output" : "/actions/default/in/teleport"
+                  }
                },
-               "path" : "/user/hand/right/input/trackpad"
+               "mode" : "trackpad",
+               "path" : "/user/hand/left/input/trackpad"
             },
             {
                "inputs" : {
@@ -90,21 +82,7 @@
                   }
                },
                "mode" : "button",
-               "parameters" : {
-                  "click_activate_threshold" : "0.05",
-                  "click_deactivate_threshold" : "0",
-                  "force_input" : "force"
-               },
                "path" : "/user/hand/right/input/grip"
-            },
-            {
-               "inputs" : {
-                  "click" : {
-                     "output" : "/actions/default/in/tri"
-                  }
-               },
-               "mode" : "button",
-               "path" : "/user/hand/left/input/trigger"
             },
             {
                "inputs" : {
@@ -118,14 +96,11 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/default/in/tri"
-                  },
-                  "position" : {
-                     "output" : "/actions/default/in/teleport"
+                     "output" : "/actions/default/in/teleport2"
                   }
                },
-               "mode" : "trackpad",
-               "path" : "/user/hand/left/input/trackpad"
+               "mode" : "button",
+               "path" : "/user/hand/right/input/trackpad"
             }
          ]
       },
@@ -141,7 +116,7 @@
    "controller_type" : "vive_controller",
    "description" : "",
    "interaction_profile" : "",
-   "name" : "vive_controller22",
+   "name" : "Saved My projectVR2 [Testing] configuration for Vive Controller",
    "options" : {},
    "simulated_actions" : []
 }

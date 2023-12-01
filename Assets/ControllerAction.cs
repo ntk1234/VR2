@@ -9,6 +9,7 @@ public class ControllerAction : MonoBehaviour
     public SteamVR_Action_Vector2 teleport;
     public SteamVR_Action_Boolean grab;
     public SteamVR_Action_Boolean trigger;
+    public SteamVR_Action_Boolean teleport2;
 
     // Update is called once per frame
     void Update()
@@ -26,6 +27,10 @@ public class ControllerAction : MonoBehaviour
         {
             print("trigger " + type);
         }
+        if (GetTeleport2Down())
+        {
+            print("Teleport2 " + type);
+        }
     }
 
     public Vector2 GetTeleportDown()
@@ -40,5 +45,9 @@ public class ControllerAction : MonoBehaviour
     public bool GetTriggerDown()
     {
         return trigger.GetStateDown(type);
+    }
+    public bool GetTeleport2Down()
+    {
+        return teleport2.GetState(type); 
     }
 }

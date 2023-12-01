@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public class WeaponManager1: MonoBehaviour
+public class WeaponManager1 : MonoBehaviour
 {
     public GameObject[] weapons;
     private int currentWeaponIndex = 0;
@@ -12,69 +12,58 @@ public class WeaponManager1: MonoBehaviour
     public GameObject[] weapons2;
     private int currentWeaponIndex2 = 0;
     public SteamVR_Input_Sources type;
-    
-    public SteamVR_Action_Vector2 teleport;
+
+    public SteamVR_Action_Boolean teleport2;
     public Vector2 fixedPosition;
+
+    private bool touchpadPressed = false;
 
     private void Start()
     {
-        // 顯示初始武器，隱藏其他武器
+        // Show the initial weapon and hide others
         SelectWeapon(currentWeaponIndex, currentWeaponIndex2, currentUi);
     }
 
     private void Update()
     {
-        Vector2 trackpadInput = teleport.GetAxis(type);
-        if (trackpadInput.y > 0.5f)
+       /* Vector2 trackpadInput = teleport.GetAxis(type);*/
+
+        if (!touchpadPressed && teleport2.GetState(type))
         {
+            /*touchpadPressed = true;*/
             SwitchWeapon();
-            // 在這裡執行上滑動的相應操作
-            Debug.Log("上滑動");
+            Debug.Log("Up swipe");
         }
 
-        // 偵測下滑動
-        if (trackpadInput.y < -0.5f)
+        /*if (trackpadInput.y <= 0.5f)
         {
-            // 在這裡執行下滑動的相應操作
-            Debug.Log("下滑動");
-        }
-
-
-
-        if (Input.GetButtonDown("ChangeW"))
-        {
-            SwitchWeapon();
-        }
-
-        /*if (trigger.GetState(type))
-        {
-            SwitchWeapon();
+            touchpadPressed = false;
         }*/
+
+        // Detect other input or button presses
     }
 
     private void SwitchWeapon()
     {
-        // 隱藏當前武器
+        // Hide the current weapons
         weapons[currentWeaponIndex].SetActive(false);
         weapons2[currentWeaponIndex2].SetActive(false);
         ui[currentUi].SetActive(false);
-        // 切換到下一個武器
+
+        // Switch to the next weapon
         currentWeaponIndex = (currentWeaponIndex + 1) % weapons.Length;
         currentWeaponIndex2 = (currentWeaponIndex2 + 1) % weapons2.Length;
         currentUi = (currentUi + 1) % ui.Length;
-        // 顯示新的武器
+
+        // Show the new weapons
         SelectWeapon(currentWeaponIndex, currentWeaponIndex2, currentUi);
     }
 
-    private void SelectWeapon(int weaponIndex, int weaponIndex2 ,int uiIndex)
+    private void SelectWeapon(int weaponIndex, int weaponIndex2, int uiIndex)
     {
-        // 顯示指定索引的武器
+        // Show the specified weapons
         weapons[weaponIndex].SetActive(true);
         weapons2[weaponIndex2].SetActive(true);
         ui[uiIndex].SetActive(true);
-    }
-    private void OnTeleportChanged(SteamVR_Action_Vector2 fromAction, SteamVR_Input_Sources fromSource, Vector2 axis, Vector2 delta)
-    {
-        // 在這裡處理軌跡板輸入值的變化
     }
 }

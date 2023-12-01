@@ -89,11 +89,19 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean Teleport
+        public virtual SteamVR_Action_Boolean Teleport2
         {
             get
             {
-                return SteamVR_Actions.default_Teleport;
+                return SteamVR_Actions.default_Teleport2;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean RRR
+        {
+            get
+            {
+                return SteamVR_Actions.default_RRR;
             }
         }
         

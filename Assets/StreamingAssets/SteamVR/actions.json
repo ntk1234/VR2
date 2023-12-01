@@ -41,7 +41,11 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/Teleport",
+      "name": "/actions/default/in/Teleport2",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/RRR",
       "type": "boolean"
     },
     {
@@ -52,7 +56,7 @@
   "action_sets": [
     {
       "name": "/actions/default",
-      "usage": "single"
+      "usage": "leftright"
     }
   ],
   "default_bindings": [
@@ -109,18 +113,5 @@
       "binding_url": "binding_vive_tracker_camera.json"
     }
   ],
-  "localization": [
-    {
-      "language_tag": "en_US",
-      "/actions/default/in/GrabGrip": "Grab Grip",
-      "/actions/default/in/HeadsetOnHead": "Headset on head (proximity sensor)",
-      "/actions/default/in/Pose": "Pose",
-      "/actions/default/in/SkeletonLeftHand": "Skeleton (Left)",
-      "/actions/default/in/SkeletonRightHand": "Skeleton (Right)",
-      "/actions/default/in/Teleport": "Teleport",
-      "/actions/default/out/Haptic": "Haptic",
-      "/actions/default/in/SnapTurnLeft": "Snap Turn (Left)",
-      "/actions/default/in/SnapTurnRight": "Snap Turn (Right)"
-    }
-  ]
+  "localization": []
 }
