@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
-using s;
+
 
 public class LaserPointer1: MonoBehaviour 
 {
     public SteamVR_Input_Sources type;
     public SteamVR_Behaviour_Pose controllerPose;
-    public SteamVR_Action_Boolean teleport;
+    public SteamVR_Action_Vector2 teleport;
     public GameObject laserPrefab;
     public Transform cameraRigTransform;
     public GameObject teleportReticlePrefab;
@@ -39,7 +39,7 @@ public class LaserPointer1: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (teleport.GetState(type))
+        if (teleport.GetAxis(type).magnitude > 0)
         {
             RaycastHit hit;
             if (Physics.Raycast(controllerPose.transform.position,
@@ -58,7 +58,7 @@ public class LaserPointer1: MonoBehaviour
             reticle.SetActive(false);
         }
 
-        if (teleport.GetStateUp(type) && shouldTeleport)
+        if (teleport.GetAxis(type).magnitude > 0 && shouldTeleport)
         {
             /*
             Teleport(); // 減少子彈數量?\*/

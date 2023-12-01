@@ -69,9 +69,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             
             Vector2 trackpadInput = teleport.GetAxis(type);
-            h = trackpadInput.y;
-
-            v = trackpadInput.x;
+           
 
             bool crouch = Input.GetKey(KeyCode.C);
 

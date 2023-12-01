@@ -17,7 +17,7 @@ namespace Valve.VR
     public class SteamVR_Input_ActionSet_default : Valve.VR.SteamVR_ActionSet
     {
         
-        public virtual SteamVR_Action_Boolean Teleport
+        public virtual SteamVR_Action_Vector2 Teleport
         {
             get
             {
@@ -86,6 +86,14 @@ namespace Valve.VR
             get
             {
                 return SteamVR_Actions.default_Tri;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean Teleport
+        {
+            get
+            {
+                return SteamVR_Actions.default_Teleport;
             }
         }
         

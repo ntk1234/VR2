@@ -9,7 +9,7 @@ public class LaserPointer : MonoBehaviour
 {
     public SteamVR_Input_Sources type;
     public SteamVR_Behaviour_Pose controllerPose;
-    public SteamVR_Action_Boolean teleport;
+    public SteamVR_Action_Vector2 teleport;
     public SteamVR_Action_Boolean tri;
     public GameObject laserPrefab;
     public Transform cameraRigTransform;
@@ -42,17 +42,17 @@ public class LaserPointer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (teleport.GetState(type))
+        if (teleport.GetAxis(type).magnitude > 0)
         {
             RaycastHit hit;
             if (Physics.Raycast(controllerPose.transform.position,
                                 transform.forward, out hit, 100, teleportMask))
             {
-                hitPoint = hit.point;
+                /*hitPoint = hit.point;
                 ShowLaser(hit);
                 reticle.SetActive(true);
                 teleportReticleTransform.position = hitPoint + teleportReticleOffset;
-                shouldTeleport = true;
+                shouldTeleport = true;*/
             }
         }
 
@@ -85,7 +85,7 @@ public class LaserPointer : MonoBehaviour
       
        
 
-        if (teleport.GetStateUp(type) && shouldTeleport)
+        if (teleport.GetAxis(type).magnitude > 0 && shouldTeleport)
         {
             Teleport();
         }

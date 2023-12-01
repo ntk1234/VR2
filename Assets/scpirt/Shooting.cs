@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-namespace s
-{ 
+
+
 public class Shooting : MonoBehaviour
     {
         public GameObject bulletPrefab;          // 子彈預置物
@@ -40,8 +40,8 @@ public class Shooting : MonoBehaviour
             Vector2 trackpadInput = teleport.GetAxis(type);
            
 
-            if (!isVR)
-            {
+            
+            
                 if (!isReloading && Input.GetButtonDown("Fire1") && fireTimer >= fireRate && currentBullets > 0)
                 {
                     Fire(); // 執行射擊操作
@@ -49,26 +49,26 @@ public class Shooting : MonoBehaviour
                     currentBullets--; // 減少子彈數量
                 }
 
-
-                if (Input.GetButtonDown("Reload") && currentBullets < maxBullets)
-                {
-                    StartCoroutine(Reload()); // 執行重新裝填
-                }
-            }
-
-            if (isVR)
+            if (!isReloading && trigger.GetState(type) && fireTimer >= fireRate && currentBullets > 0)
             {
-                if (!isReloading && trigger.GetState(type) && fireTimer >= fireRate && currentBullets > 0)
-                {
-                    Fire(); // 執行射擊操作
-                    fireTimer = 0f; // 重置射擊計時器
-                    currentBullets--; // 減少子彈數量
-                }
-                if ((trackpadInput.y < -0.5f) && currentBullets < maxBullets)
+                Fire(); // 執行射擊操作
+                fireTimer = 0f; // 重置射擊計時器
+                currentBullets--; // 減少子彈數量
+            }
+
+            if (Input.GetButtonDown("Reload") && currentBullets < maxBullets)
                 {
                     StartCoroutine(Reload()); // 執行重新裝填
                 }
-            }
+            
+
+            
+              
+              /* if ((trackpadInput.y < -0.5f) && currentBullets < maxBullets)
+                {
+                    StartCoroutine(Reload()); // 執行重新裝填
+                }*/
+            
         }
 
         public void Fire()
@@ -98,4 +98,4 @@ public class Shooting : MonoBehaviour
             get { return currentBullets; }
         }
     }
-}
+

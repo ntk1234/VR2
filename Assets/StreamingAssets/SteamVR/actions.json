@@ -2,7 +2,7 @@
   "actions": [
     {
       "name": "/actions/default/in/Teleport",
-      "type": "boolean"
+      "type": "vector2"
     },
     {
       "name": "/actions/default/in/GrabGrip",
@@ -38,6 +38,10 @@
     },
     {
       "name": "/actions/default/in/Tri",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/default/in/Teleport",
       "type": "boolean"
     },
     {
