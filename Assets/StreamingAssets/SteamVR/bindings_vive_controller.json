@@ -101,6 +101,15 @@
                },
                "mode" : "button",
                "path" : "/user/hand/right/input/trackpad"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/default/in/r"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/right/input/application_menu"
             }
          ]
       },

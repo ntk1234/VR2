@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-public class ViveVRMovement : MonoBehaviour
+public class ViveVRMovement1: MonoBehaviour
 {
     public SteamVR_Input_Sources inputSource;
     public SteamVR_Action_Vector2 touchpadAxis;

@@ -2643,15 +2643,6 @@ MonoBehaviour:
   currentBullets: 0
   isReloading: 0
   isVR: 0
-  shooting: {fileID: 0}
-  type: 2
-  controllerPose: {fileID: 0}
-  teleport:
-    actionPath: 
-    needsReinit: 0
-  trigger:
-    actionPath: 
-    needsReinit: 0
 --- !u!224 &350242540 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 716795339629548375, guid: a92a2137eabd3184da3f1a97e76addc7, type: 3}
@@ -18004,7 +17995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5362822317103515594, guid: 8c6596776f6f7c74d9f0ec1b21384a43, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6346932177312659368, guid: 8c6596776f6f7c74d9f0ec1b21384a43, type: 3}
       propertyPath: m_Materials.Array.data[0]

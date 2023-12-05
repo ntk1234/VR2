@@ -50,6 +50,10 @@ public class Shooting1VR: MonoBehaviour
         {
             StartCoroutine(Reload()); // 執行重新裝填
         }
+        if (r.GetState(type) && currentBullets < maxBullets)
+        {
+            StartCoroutine(Reload()); // °õ¦æ­«·s¸Ë¶ñ
+        }
     }
 
     private void Fire()

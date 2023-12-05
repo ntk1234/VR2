@@ -24,6 +24,7 @@ public class shootingVR: MonoBehaviour
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean r;
     public SteamVR_Action_Boolean trigger;
+    
 
     public void Start()
     {
@@ -31,6 +32,8 @@ public class shootingVR: MonoBehaviour
         currentBullets = maxBullets; // 初始時擁有最大子彈數量
         isReloading = false; // 初始時未在重新裝填
         isVR = UnityEngine.XR.XRSettings.isDeviceActive;
+        /*Vector3 newPosition = new Vector3(200f, -500f, 200f);
+        bulletSpawnPoint.position += newPosition;*/
     }
 
     public void Update()
@@ -59,9 +62,12 @@ public class shootingVR: MonoBehaviour
         {
             StartCoroutine(Reload()); // 執行重新裝填
         }
+        if (r.GetState(type) && currentBullets < maxBullets)
+        {
+            StartCoroutine(Reload()); // 執行重新裝填
+        }
 
-
-
+        /*bulletSpawnPoint.transform.rotation = controllerPose.transform.rotation;*/
 
         /* if ((trackpadInput.y < -0.5f) && currentBullets < maxBullets)
           {

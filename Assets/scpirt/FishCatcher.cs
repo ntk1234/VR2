@@ -10,6 +10,7 @@ public class FishCatcher : MonoBehaviour
     public int fishCountF = 5;
     public Text nextLevelText;
     public GameObject nextLevelPanel;
+    public PauseMenu1 PM;
     private void Start()
     {
         // 订阅捕获鱼的事件
@@ -34,9 +35,9 @@ public class FishCatcher : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Game Over");
-        Time.timeScale = 0f;
+        PM.PauseGame();
         nextLevelPanel.SetActive(true);
-        nextLevelText.text = "Move to Next Level\nCatch fish: " + fishCount;
+        nextLevelText.text = "Finish \nCatch fish: " + fishCount;
 
         // 在这里编写游戏结束的逻辑，例如显示游戏结束画面、停止游戏等
     }

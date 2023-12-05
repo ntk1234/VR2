@@ -17,7 +17,7 @@ public class WeaponManager1 : MonoBehaviour
     public Vector2 fixedPosition;
 
     private bool touchpadPressed = false;
-
+    public SteamVR_Behaviour_Pose rightHandPose;
     private void Start()
     {
         // Show the initial weapon and hide others
@@ -45,6 +45,8 @@ public class WeaponManager1 : MonoBehaviour
         }*/
 
         // Detect other input or button presses
+        weapons[currentWeaponIndex].transform.position = rightHandPose.transform.position;
+        weapons[currentWeaponIndex].transform.rotation = rightHandPose.transform.rotation;
     }
 
     private void SwitchWeapon()
