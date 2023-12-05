@@ -2,20 +2,24 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Water
   m_Shader: {fileID: 4800000, guid: 20103cb46f028d74ca962a7a7f51a1d9, type: 3}
-  m_ShaderKeywords: 
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -111,11 +115,12 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0c41e829b9bb6ee4cb72abae07230cdb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _Brightness: 1
     - _BumpScale: 1
     - _Contrast: 1
-    - _ContrastMt: 0.13
+    - _ContrastMt: 0.86
     - _Cutoff: 0.52
     - _Cycle: 3
     - _Depth: 2.2
@@ -131,40 +136,40 @@ Material:
     - _FadeLimit: 0.1
     - _GlossAmount: 0.03
     - _GlossMapScale: 1
-    - _Glossiness: 0.95
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _Intensity: 2
-    - _IntensityMicrowave: 0.68
-    - _IntensityMt: 4.2
-    - _IntensityNm: 0.5
-    - _IntensityNmDetail: 0.2
+    - _IntensityMicrowave: 0.5
+    - _IntensityMt: 2.14
+    - _IntensityNm: 9.8
+    - _IntensityNmDetail: 0.001
     - _IntensityRef: 2.3
     - _InvFade: 0
-    - _MainDetailFlow: 1
-    - _MainDetailScale: 1
-    - _Metallic: 0.95
-    - _MicrowaveScale: 1
+    - _MainDetailFlow: 0.86
+    - _MainDetailScale: 0.001
+    - _Metallic: 1
+    - _MicrowaveScale: 2.5
     - _MinuteDetailIntensity: 1.455
     - _MinuteDetailScrollSpeed: 0.089
     - _Mitigation: 22.4
     - _Mode: 0
     - _NormalDetailFlow: 1
-    - _NormalmapDetailScale: 1.2
+    - _NormalmapDetailScale: 10
     - _NormalmapDetailScaleA: 1
     - _NormalmapDetailScaleB: 5
-    - _NormalmapDetailSpeed: -0.1
+    - _NormalmapDetailSpeed: 0.75
     - _OcclusionStrength: 1
-    - _Parallax: 0.1
-    - _ParallaxScale: 0.51
+    - _Parallax: 0.2
+    - _ParallaxScale: 5.6
     - _Radius: 1
     - _Reflect: 1
     - _RefractionIntensity: 0.61
     - _RefractionSpeed: 1.61
-    - _ReverseFlow: 2.3
+    - _ReverseFlow: -3.1
     - _Saturation: 1
     - _Shininess: 0.157
     - _SmoothnessTextureChannel: 0
-    - _SoftFactor: 0.11
+    - _SoftFactor: 0.08
     - _SpecularHighlights: 1
     - _Speed: 0.5
     - _SpeedX: 0.1
@@ -186,3 +191,4 @@ Material:
     - _ReflectColor: {r: 0.07605405, g: 0.084, b: 0.082864866, a: 1}
     - _SpecColor: {r: 0.4, g: 0.4, b: 0.3764706, a: 1}
     - _SpecularColor: {r: 0.5808823, g: 0.5808823, b: 0.5808823, a: 1}
+  m_BuildTextureStacks: []

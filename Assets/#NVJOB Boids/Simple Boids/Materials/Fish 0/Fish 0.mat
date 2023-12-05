@@ -86,7 +86,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _BiasNormal: 0.8
-    - _Brightness: 1
+    - _Brightness: 2.67
     - _BumpMapDUV: 9
     - _BumpScale: 1
     - _Contrast: 1.2
@@ -114,13 +114,13 @@ Material:
     - _OcclusionMapUv: 9
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Saturation: 1
+    - _Saturation: 1.07
     - _SaturationRef: 0
     - _ScriptControl: 0
-    - _Shininess: 0.04
+    - _Shininess: 0.4
     - _SmoothnessTextureChannel: 0
     - _SpecMapDInts: 1
-    - _SpecMapInts: 0.61
+    - _SpecMapInts: 1.18
     - _SpecMapUV: 9
     - _SpecMapUVD: 1
     - _SpecularHighlights: 1
