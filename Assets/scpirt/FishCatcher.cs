@@ -11,6 +11,9 @@ public class FishCatcher : MonoBehaviour
     public Text nextLevelText;
     public GameObject nextLevelPanel;
     public PauseMenu1 PM;
+
+    private bool gamePaused = false;
+
     private void Start()
     {
         // 订阅捕获鱼的事件
@@ -26,7 +29,7 @@ public class FishCatcher : MonoBehaviour
         fishCount++;  // 捕获到鱼，计数器加1
         Debug.Log("Fish caught! Total count: " + fishCount);
 
-        if (fishCount >= fishCountF )
+        if (fishCount >= fishCountF)
         {
             GameOver();  // 当捕获到5条鱼时，调用游戏结束方法
         }
@@ -35,10 +38,37 @@ public class FishCatcher : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Game Over");
-        PM.PauseGame();
-        nextLevelPanel.SetActive(true);
-        nextLevelText.text = "Finish \nCatch fish: " + fishCount;
+        Time.timeScale = 0f;
+        gamePaused = true;
 
-        // 在这里编写游戏结束的逻辑，例如显示游戏结束画面、停止游戏等
+        nextLevelPanel.SetActive(true);
+        nextLevelText.text = "Finish\nCatch fish: " + fishCount;
+
+        StartCoroutine(LoadTitleSceneAfterDelay(2f));
+        
+    }
+
+    private IEnumerator LoadTitleSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
+        Time.timeScale = 1f;
+        gamePaused = false;
+
+        SceneManager.LoadScene("titleVR");
+    }
+
+    private void Update()
+    {
+        if (gamePaused)
+        {
+            // 在游戏暂停时的逻辑
+            // 例如禁用玩家输入、暂停游戏进行等
+        }
+        else
+        {
+            // 在游戏运行时的逻辑
+            // 例如玩家控制、游戏逻辑等
+        }
     }
 }
