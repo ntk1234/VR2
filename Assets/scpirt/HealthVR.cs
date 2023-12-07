@@ -8,15 +8,29 @@ public class HealthVR: MonoBehaviour
 {
     public float maxHealth = 100f; // 物件的最大生命值
     public float currentHealth;
+    public Text killShark;
+    public Text killShark2;
+    public GameObject gameOver;
     private bool gamePaused = false;
+    public int fishCount = 0;  // 鱼的计数器
+    public int sharkCount = 0;
 
     // 物件的當前生命值
 
     private void Start()
     {
         currentHealth = maxHealth; // 初始化當前生命值為最大生命值
+        Fish[] fishes = FindObjectsOfType<Fish>();
+        foreach (Fish fish in fishes)
+        {
+            fish.OnFishCaught += IncreaseFishCount;
+        }
+        Fish1[] fishes1 = FindObjectsOfType<Fish1>();
+        foreach (Fish1 fish1 in fishes1)
+        {
+            fish1.OnSharkKill += IncreaseSharkCount;
+        }
 
-   
     }
 
     // 承受傷害
@@ -29,7 +43,20 @@ public class HealthVR: MonoBehaviour
             Die(); // 如果當前生命值小於等於 0，則執行死亡動作
         }
     }
-   
+    private void IncreaseFishCount()
+    {
+        fishCount++;  // 捕获到鱼，计数器加1
+        Debug.Log("Fish caught! Total count: " + fishCount);
+
+
+    }
+    private void IncreaseSharkCount()
+    {
+        ;
+        sharkCount++;
+        Debug.Log("Kill shark! Total count: " + sharkCount);
+        killShark2.text = "Kill shark:" + sharkCount;
+    }
 
 
     // 死亡
@@ -39,9 +66,21 @@ public class HealthVR: MonoBehaviour
 
         Debug.Log("Player died!");
         // 此處只是銷毀物件，您可以根據遊戲需求進行相應的操作
-        SceneManager.LoadScene("titleVR");
+
+        Time.timeScale = 0f;
+        gameOver.SetActive(true);
+        killShark.text = "Kill shark:" + sharkCount;
+        StartCoroutine(LoadTitleSceneAfterDelay(2f));
 
     }
 
-   
+    private IEnumerator LoadTitleSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
+        Time.timeScale = 1f;
+        gamePaused = false;
+
+        SceneManager.LoadScene("titleVR");
+    }
 }
