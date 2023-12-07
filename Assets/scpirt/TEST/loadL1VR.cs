@@ -6,21 +6,28 @@ using Valve.VR;
 
 public class loadL1VR : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public SteamVR_Input_Sources type;
+    public SteamVR_Behaviour_Pose controllerPose;
+    public SteamVR_Action_Boolean tri;
+
+
+    private void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
-        if (Input.anyKeyDown)
+
+        if (tri.GetState(type))
         {
 
             SceneManager.LoadScene("L1VR");
 
+
+
         }
+
     }
 }

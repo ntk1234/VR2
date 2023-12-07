@@ -6,16 +6,18 @@ using Valve.VR;
 
 public class shootingVR: MonoBehaviour
 {
-    public GameObject bulletPrefab;          // 子彈預置物
-    public Transform bulletSpawnPoint;       // 子彈生成點
-    public float bulletSpeed = 10f;          // 子彈速度
-    public float fireRate = 0.5f;            // 射擊頻率
-    public int maxBullets = 10;              // 最大子彈數量
-    public float reloadTime = 2f;            // 重新裝填時間
+    public GameObject bulletPrefab;         
+    public Transform bulletSpawnPoint;
 
-    public float fireTimer;                  // 射擊計時器
-    public int currentBullets;               // 目前子彈數量
-    public bool isReloading;                  // 是否正在重新裝填
+    
+    public float bulletSpeed = 10f;          
+    public float fireRate = 0.5f;            
+    public int maxBullets = 10;              
+    public float reloadTime = 2f;            
+
+    public float fireTimer;                  
+    public int currentBullets;               
+    public bool isReloading;                  
     public bool isVR;
 
     public shootingVR shootingvr;
@@ -73,6 +75,7 @@ public class shootingVR: MonoBehaviour
           {
               StartCoroutine(Reload()); // 執行重新裝填
           }*/
+        
 
     }
 
