@@ -14,7 +14,8 @@ public class HealthVR: MonoBehaviour
     private bool gamePaused = false;
     public int fishCount = 0;  // 鱼的计数器
     public int sharkCount = 0;
-
+   
+    private int currentfishsIndex = 0;
     // 物件的當前生命值
 
     private void Start()
@@ -32,6 +33,9 @@ public class HealthVR: MonoBehaviour
         }
 
     }
+
+ 
+
 
     // 承受傷害
     public void TakeDamage(float damage)

@@ -13,7 +13,10 @@ public class FishCatcher : MonoBehaviour
     public PauseMenu1 PM;
 
     private bool gamePaused = false;
-
+    public GameObject fish1;
+    public GameObject fish2;
+    public GameObject fish3;
+    public GameObject fish4;
     private void Start()
     {
         // 订阅捕获鱼的事件
@@ -24,6 +27,40 @@ public class FishCatcher : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+
+        if (fishCount == 1)
+        {
+            fish1.SetActive(false);
+            ;
+        }
+        if (fishCount == 2)
+        {
+            fish2.SetActive(false);
+            ;
+        }
+        if (fishCount == 3)
+        {
+            fish3.SetActive(false);
+            ;
+        }
+        if (fishCount == 4)
+        {
+            fish4.SetActive(false);
+            ;
+        }
+        if (gamePaused)
+        {
+            // 在游戏暂停时的逻辑
+            // 例如禁用玩家输入、暂停游戏进行等
+        }
+        else
+        {
+            // 在游戏运行时的逻辑
+            // 例如玩家控制、游戏逻辑等
+        }
+    }
     private void IncreaseFishCount()
     {
         fishCount++;  // 捕获到鱼，计数器加1
@@ -58,17 +95,4 @@ public class FishCatcher : MonoBehaviour
         SceneManager.LoadScene("titleVR");
     }
 
-    private void Update()
-    {
-        if (gamePaused)
-        {
-            // 在游戏暂停时的逻辑
-            // 例如禁用玩家输入、暂停游戏进行等
-        }
-        else
-        {
-            // 在游戏运行时的逻辑
-            // 例如玩家控制、游戏逻辑等
-        }
-    }
 }

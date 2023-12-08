@@ -18,7 +18,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public SteamVR_Behaviour_Pose controllerPose;
         public SteamVR_Input_Sources type;
 
-        public SteamVR_Action_Vector2 teleport;
+        public SteamVR_Action_Boolean tri;
         private void Start()
         {
             // get the transform of the main camera
@@ -42,7 +42,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             if (!m_Jump)
             {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+                m_Jump = tri.GetStateDown(type);
             }
             
             if (Input.GetButton("Fire3"))
@@ -68,7 +68,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float v = CrossPlatformInputManager.GetAxis("Vertical");
 
             
-            Vector2 trackpadInput = teleport.GetAxis(type);
            
 
             bool crouch = Input.GetKey(KeyCode.C);
