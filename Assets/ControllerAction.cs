@@ -31,7 +31,8 @@ public class ControllerAction : MonoBehaviour
         {
             print("Teleport2 " + type);
         }
-    }
+       
+}
 
     public Vector2 GetTeleportDown()
     {

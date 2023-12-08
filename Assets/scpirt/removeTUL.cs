@@ -9,20 +9,24 @@ public class removeTUL : MonoBehaviour
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean r;
     public GameObject tul;
-    public bool isTUL;
+  
+    public GameObject[] ui;
+    private int currentUi = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        isTUL= true;
+   
+        SelectWeapon( currentUi);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (r.GetState(type))
+        if (r.GetStateDown(type))
         {
-            tul.SetActive(false);
+            SwitchWeapon(); 
 
            
             // 執行重新裝填
@@ -30,15 +34,26 @@ public class removeTUL : MonoBehaviour
        
 
     }
-
-    public void tulOpen()
+    private void SwitchWeapon()
     {
-        isTUL = true;
-        ;
+        // Hide the current weapons
+      
+        ui[currentUi].SetActive(false);
+
+        // Switch to the next weapon
+      
+        currentUi = (currentUi + 1) % ui.Length;
+
+        // Show the new weapons
+        SelectWeapon( currentUi);
     }
 
-    public void tulClose()
+    private void SelectWeapon(int uiIndex)
     {
-        isTUL = false;
-        ; }
+        // Show the specified weapons
+       
+        ui[uiIndex].SetActive(true);
+    }
+
+
 }

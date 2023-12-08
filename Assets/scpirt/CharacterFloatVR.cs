@@ -11,7 +11,7 @@ public class CharacterFloatVR : MonoBehaviour
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Action_Boolean tri;
     private bool isFloating = false;
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     private void Start()
     {
@@ -21,13 +21,14 @@ public class CharacterFloatVR : MonoBehaviour
     private void Update()
     {
         // 检测指定按键的按下
-        if (tri.GetState(type))
+        if (tri.GetStateDown(type))
         {
             // 开始浮动
             isFloating = true;
             // 应用向上的浮动力
             rb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
         }
+       
     }
 
     private void FixedUpdate()
@@ -36,7 +37,7 @@ public class CharacterFloatVR : MonoBehaviour
         if (isFloating)
         {
             rb.AddForce(Vector3.up * floatForce, ForceMode.Force);
-        }
+        }  
     }
 }
 
