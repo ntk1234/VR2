@@ -11,15 +11,17 @@ public class CharacterFloat : MonoBehaviour
 
     private bool isFloating = false;
     private Rigidbody rb;
+    public bool isJump = true;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    public void Update()
     {
         // 检测指定按键的按下
+        if (isJump) { 
         if (Input.GetButtonDown("Jump"))
         {
             // 开始浮动
@@ -27,9 +29,10 @@ public class CharacterFloat : MonoBehaviour
             // 应用向上的浮动力
             rb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
         }
+        }
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         // 如果正在浮动，则应用浮动力，使角色保持浮动状态
         if (isFloating)
