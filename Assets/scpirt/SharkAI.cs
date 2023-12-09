@@ -11,16 +11,16 @@ public class SharkAI : MonoBehaviour
     private GameObject target; // 追蹤的目標
     private NavMeshAgent agent; // NavMesh 代理人
     private bool isTracking = false; // 是否正在追蹤玩家
-    private bool isTracking2 = false;
-    private AudioSource audioData;
-    public AudioClip sharkSound;
+   
+    
+    /*public AudioClip sharkSound;*/
 
     void Start()
     {
         
         agent = GetComponent<NavMeshAgent>();
         SearchTarget();
-        SearchTarget2();
+       
        
     }
 
@@ -36,7 +36,16 @@ public class SharkAI : MonoBehaviour
                 if (Vector3.Distance(transform.position, target.transform.position) <= agent.stoppingDistance)
                 {
                     AttackTarget();
-                   
+                    /*if (sharkSound != null)
+                    {
+                        GameObject audioObject = new GameObject("SharkSound");
+                        AudioSource audioData = audioObject.AddComponent<AudioSource>();
+                        audioData.clip = sharkSound;
+                        audioData.volume = 0.8f;
+                        audioData.Play();
+                        Destroy(audioObject, sharkSound.length);
+                    }*/
+
                 }
             }
             else
@@ -46,26 +55,8 @@ public class SharkAI : MonoBehaviour
               
             }
         }
-        if (isTracking2)
-        {
-            if (target != null)
-            {
-                
-
-                // 如果鯊魚與目標距離在攻擊範圍內，執行攻擊行為
-                if (Vector3.Distance(transform.position, target.transform.position) <= agent.stoppingDistance)
-                {
-                    playSharkSound();
-
-                }
-            }
-            else
-            {
-                // 如果目標不存在，停止追蹤
-                StopTracking();
-
-            }
-        }
+        
+        
     }
 
     void SearchTarget()
@@ -77,21 +68,13 @@ public class SharkAI : MonoBehaviour
             isTracking = true;
         }
     }
-    void SearchTarget2()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, searchRadius2, targetLayer);
-        if (colliders.Length > 0)
-        {
-            target = colliders[Random.Range(0, colliders.Length)].gameObject;
-            isTracking2 = true;
-        }
-    }
+   
 
     void StopTracking()
     {
         
         isTracking = false;
-        isTracking2 = false;
+        
         // 在這裡執行停止追蹤時的行為，例如停止動畫播放等
 
     }
@@ -119,12 +102,5 @@ public class SharkAI : MonoBehaviour
         Debug.Log("Attacking target: " + target.name);
     }
 
-   void playSharkSound()
-    {
-        GameObject audioObject = new GameObject("SharkSound");
-        audioData = audioObject.AddComponent<AudioSource>();
-        audioData.clip = sharkSound;
-        audioData.volume = 0.8f;
-        audioData.Play(); 
-    }
+   
 }

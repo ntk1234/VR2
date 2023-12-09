@@ -6,7 +6,7 @@ using UnityEngine;
 public class DamageOnCollision : MonoBehaviour
 {
     public int damageAmount = 10; // 傷害數量
-    
+    public AudioClip explosionSound;
 
     void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +14,16 @@ public class DamageOnCollision : MonoBehaviour
         {
             // 在這裡執行給予玩家傷害的行為，例如扣除玩家的生命值
             Health playerHealth = collision.gameObject.GetComponent<Health>();
-            
+
+            if (explosionSound != null)
+            {
+                GameObject audioObject = new GameObject("ExplosionSound");
+                AudioSource audioSource = audioObject.AddComponent<AudioSource>();
+                audioSource.clip = explosionSound;
+                audioSource.volume = 0.8f;
+                audioSource.Play();
+                Destroy(audioObject, explosionSound.length);
+            }
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damageAmount);
