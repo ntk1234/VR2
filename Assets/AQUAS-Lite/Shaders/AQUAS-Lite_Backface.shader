@@ -123,7 +123,7 @@ Shader "AQUAS-Lite/Backface"
 			float2 panner3_g270 = ( _Time.y * appendResult1_g270 + rotator30);
 			float normalStrength681 = _NormalStrength;
 			float3 lerpResult67 = lerp( float3(0,0,1) , ( UnpackNormal( tex2D( _NormalTexture, panner3_g272 ) ) + UnpackNormal( tex2D( _NormalTexture, panner3_g270 ) ) ) , normalStrength681);
-			/*float3 NormalsClose1340 = lerpResult67;*/
+			float3 NormalsClose1340 = lerpResult67;
 			float temp_output_678_0 = ( waveSpeed675 / 10.0 );
 			float2 appendResult1_g264 = (float2(temp_output_678_0 , 0.0));
 			float2 temp_output_1199_0 = ( BaseUV1197 * ( normalTiling618 / 10.0 ) );
