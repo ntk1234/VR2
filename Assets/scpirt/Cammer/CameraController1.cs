@@ -1,25 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
-public class CameraController1: MonoBehaviour
+public class CameraController1 : MonoBehaviour
 {
-    public KeyCode captureKey = KeyCode.Space; // 定義拍照按鍵
-    public RawImage thumbnailImage; // 顯示縮圖的RawImage元件
-    
-    private Texture2D thumbnailTexture;
+    public KeyCode captureKey = KeyCode.Space; // 拍照按键
+    public KeyCode captureKey2 = KeyCode.B; // 拍照按键
+    public RawImage thumbnailImage; // 缩略图的RawImage组件
+    private List<Texture2D> photoTextures = new List<Texture2D>(); // 存储照片纹理的列表
+    public GameObject[] photoPreviews; // 用于显示照片预览的游戏对象
+    public GameObject bk;
 
     private void Start()
     {
-        thumbnailTexture = new Texture2D(128, 128); // 縮圖的寬度和高度
+        // 隐藏初始的6张相片预览
+        foreach (GameObject preview in photoPreviews)
+        {
+            preview.SetActive(false);
+        }
+        bk.SetActive(false);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(captureKey))
+        {
+            CaptureScreenshot();
+        }
+        if (Input.GetKeyDown(captureKey2))
         {
             CaptureScreenshot();
         }
@@ -36,34 +45,58 @@ public class CameraController1: MonoBehaviour
         StartCoroutine(GenerateThumbnail(filePath));
     }
 
-    private System.Collections.IEnumerator GenerateThumbnail(string filePath)
+    private IEnumerator GenerateThumbnail(string filePath)
     {
-        // 等待一幀，以確保截圖保存完成
-        yield return null;
+        yield return null; // 等待一帧，以确保截图保存完成
 
-        // 讀取截圖圖片
+        // 读取截图图片
         byte[] imageBytes = System.IO.File.ReadAllBytes(filePath);
         Texture2D screenshotTexture = new Texture2D(2, 2);
         screenshotTexture.LoadImage(imageBytes);
 
-        // 縮放截圖以符合縮圖大小
+        // 缩放截图以符合缩略图大小
         Texture2D resizedTexture = ScaleTexture(screenshotTexture, 128, 128);
 
-        // 將縮放後的圖片複製到縮圖
-        thumbnailTexture.LoadRawTextureData(resizedTexture.GetRawTextureData());
-        thumbnailTexture.Apply();
+        // 添加照片纹理到列表
+        photoTextures.Add(screenshotTexture);
 
-        // 顯示縮圖
-        thumbnailImage.texture = thumbnailTexture;
+        // 如果照片数量超过6，删除最旧的照片
+        if (photoTextures.Count > 6)
+        {
+            Texture2D oldestTexture = photoTextures[0];
+            photoTextures.RemoveAt(0);
+            Destroy(oldestTexture);
+        }
+
+        // 更新照片预览
+        UpdatePhotoPreviews();
+
+        // 显示缩略图
+        thumbnailImage.texture = resizedTexture;
         thumbnailImage.gameObject.SetActive(true);
-        StartCoroutine(LoadTitleSceneAfterDelayCap(3f));
+
+        StartCoroutine(HideThumbnailAfterDelay(3f));
     }
-    private IEnumerator LoadTitleSceneAfterDelayCap(float delay)
+
+    private void UpdatePhotoPreviews()
+    {
+        for (int i = 0; i < photoTextures.Count; i++)
+        {
+            // 显示照片预览
+            photoPreviews[i].SetActive(true);
+
+            // 将照片纹理应用到预览的RawImage组件上
+            RawImage previewImage = photoPreviews[i].GetComponent<RawImage>();
+            previewImage.texture = photoTextures[i];
+        }
+    }
+
+    private IEnumerator HideThumbnailAfterDelay(float delay)
     {
         yield return new WaitForSecondsRealtime(delay);
         thumbnailImage.gameObject.SetActive(false);
-
     }
+
     private Texture2D ScaleTexture(Texture2D sourceTexture, int targetWidth, int targetHeight)
     {
         RenderTexture rt = new RenderTexture(targetWidth, targetHeight, 24);
