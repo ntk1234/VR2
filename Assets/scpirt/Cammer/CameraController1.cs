@@ -5,16 +5,17 @@ using UnityEngine.UI;
 
 public class CameraController1 : MonoBehaviour
 {
-    public KeyCode captureKey = KeyCode.Space; // 拍照按键
-    public KeyCode captureKey2 = KeyCode.B; // 拍照按键
-    public RawImage thumbnailImage; // 缩略图的RawImage组件
-    private List<Texture2D> photoTextures = new List<Texture2D>(); // 存储照片纹理的列表
-    public GameObject[] photoPreviews; // 用于显示照片预览的游戏对象
+    public KeyCode captureKey = KeyCode.Space; 
+    public KeyCode captureKey2 = KeyCode.B; 
+    public RawImage thumbnailImage; 
+    private List<Texture2D> photoTextures = new List<Texture2D>(); 
+    public GameObject[] photoPreviews; 
     public GameObject bk;
+    public bool isOPBK = false;
 
     private void Start()
     {
-        // 隐藏初始的6张相片预览
+        
         foreach (GameObject preview in photoPreviews)
         {
             preview.SetActive(false);
@@ -24,13 +25,22 @@ public class CameraController1 : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(captureKey))
+        if (!isOPBK && Input.GetKeyDown(captureKey))
         {
             CaptureScreenshot();
         }
-        if (Input.GetKeyDown(captureKey2))
+
+        if (!isOPBK&&Input.GetKeyDown(captureKey2))
         {
-            CaptureScreenshot();
+            bk.SetActive(true);
+            PauseGame();
+            isOPBK = true;
+        }
+        else if (isOPBK&&Input.GetKeyDown(captureKey2))
+        {
+            bk.SetActive(false);
+            ResumeGame();
+            isOPBK = false;
         }
     }
 
@@ -60,7 +70,7 @@ public class CameraController1 : MonoBehaviour
         // 添加照片纹理到列表
         photoTextures.Add(screenshotTexture);
 
-        // 如果照片数量超过6，删除最旧的照片
+        // 数量超过6，删除最旧的照片
         if (photoTextures.Count > 6)
         {
             Texture2D oldestTexture = photoTextures[0];
@@ -112,5 +122,14 @@ public class CameraController1 : MonoBehaviour
         Destroy(rt);
 
         return targetTexture;
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 }
