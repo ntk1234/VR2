@@ -13,6 +13,11 @@ public class PanCol : MonoBehaviour
     public GameObject bk;
     public bool isOPBK = false;
     public MouseLock2 ML;
+    public bool isCKSHARK = false;
+    public GameObject imageSK1;
+    public GameObject imageSK2;
+    public GameObject pSK;
+    public bool isPSK = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +49,15 @@ public class PanCol : MonoBehaviour
             pCL2.SetActive(false);
         }
 
-        if (!isOPBK && Input.GetKeyDown(captureKey2))
+        if(isPSK)
+        {
+            pSK.SetActive(true);
+        }
+        else
+        {
+            pSK.SetActive(false);
+        }
+            if (!isOPBK && Input.GetKeyDown(captureKey2))
         {
             bk.SetActive(true);
             PauseGame();
@@ -66,10 +79,27 @@ public class PanCol : MonoBehaviour
             {
                 isStop2 = false;
             }
+            if (isPSK)
+            {
+                isPSK = false;
+            }
         }
+
+        if (isCKSHARK)
+        {
+            opSKINFO();
+
+        }
+
+
     }
 
+    public void opSKINFO()
+    {
+        imageSK1.SetActive(false);
+        imageSK2.SetActive(true);
 
+    }
     public void isCKSpt()
     {
         isStop = true;
@@ -87,6 +117,17 @@ public class PanCol : MonoBehaviour
     public void isCKSpf2()
     {
         isStop2 = false;
+    }
+
+    public void openPSK()
+    {
+        
+        isPSK = true;
+    }
+    public void closePSK()
+    {
+        isPSK = false;
+     
     }
     public void PauseGame()
     {

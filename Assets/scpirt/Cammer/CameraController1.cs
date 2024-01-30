@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class CameraController1 : MonoBehaviour
 {
     public KeyCode captureKey = KeyCode.Space; 
-    public KeyCode captureKey2 = KeyCode.B; 
+   
     public RawImage thumbnailImage; 
     private List<Texture2D> photoTextures = new List<Texture2D>(); 
     public GameObject[] photoPreviews; 
     public PanCol PC;
+    public bool isTakPH = false;
 
     private void Start()
     {
@@ -26,7 +27,9 @@ public class CameraController1 : MonoBehaviour
     {
         if (!PC.isOPBK && Input.GetKeyDown(captureKey))
         {
+            isTakPH = true;
             CaptureScreenshot();
+            
         }
 
        
@@ -86,6 +89,7 @@ public class CameraController1 : MonoBehaviour
             // 将照片纹理应用到预览的RawImage组件上
             RawImage previewImage = photoPreviews[i].GetComponent<RawImage>();
             previewImage.texture = photoTextures[i];
+
         }
     }
 
@@ -93,6 +97,7 @@ public class CameraController1 : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(delay);
         thumbnailImage.gameObject.SetActive(false);
+        isTakPH = false;
     }
 
     private Texture2D ScaleTexture(Texture2D sourceTexture, int targetWidth, int targetHeight)

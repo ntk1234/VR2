@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ObjectDetection : MonoBehaviour
 {
-    public GameObject objectToDetect; // 要偵測的物體
+    public GameObject[] objectsToDetect; // 要偵測的物體
     public float detectionDelay = 1f; // 偵測間隔時間
 
     private Camera mainCamera;
     private bool isObjectDetected = false;
-
+    public CameraController1 CC;
+    public PanCol PC;
 
 
     private void Start()
@@ -20,21 +21,32 @@ public class ObjectDetection : MonoBehaviour
 
     private void DetectObject()
     {
-        Vector3 viewPos = mainCamera.WorldToViewportPoint(objectToDetect.transform.position);
+        foreach (GameObject obj in objectsToDetect)
+        {
+            Vector3 viewPos = mainCamera.WorldToViewportPoint(obj.transform.position);
 
-        if (viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1 && viewPos.z > 0)
-        {
-            if (!isObjectDetected )
-            {
-                // 偵測到物體後的操作
-                Debug.Log("Object detected!");
-                // 在此處啟動你想要執行的腳本或功能
-                isObjectDetected = true;
-            }
-        }
-        else
-        {
-            isObjectDetected = false;
+            if (viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1 && viewPos.z > 0)
+
+                if (viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1 && viewPos.z > 0)
+                {
+                    if (!isObjectDetected && CC.isTakPH)
+                    {
+                        // 偵測到物體後的操作
+                        Debug.Log("Object detected!");
+                        if (obj.CompareTag("Shark"))
+                        {
+                            // 在此處啟動你想要執行的腳本或功能
+                            // 例如，調用其他組件的方法或激活其他物體
+                            PC.isCKSHARK = true;
+                        }
+
+                        isObjectDetected = true;
+                    }
+                }
+                else
+                {
+                    isObjectDetected = false;
+                }
         }
     }
 }
