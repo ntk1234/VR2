@@ -10,8 +10,7 @@ public class CameraController1 : MonoBehaviour
     public RawImage thumbnailImage; 
     private List<Texture2D> photoTextures = new List<Texture2D>(); 
     public GameObject[] photoPreviews; 
-    public GameObject bk;
-    public bool isOPBK = false;
+    public PanCol PC;
 
     private void Start()
     {
@@ -20,28 +19,17 @@ public class CameraController1 : MonoBehaviour
         {
             preview.SetActive(false);
         }
-        bk.SetActive(false);
+        
     }
 
     private void Update()
     {
-        if (!isOPBK && Input.GetKeyDown(captureKey))
+        if (!PC.isOPBK && Input.GetKeyDown(captureKey))
         {
             CaptureScreenshot();
         }
 
-        if (!isOPBK&&Input.GetKeyDown(captureKey2))
-        {
-            bk.SetActive(true);
-            PauseGame();
-            isOPBK = true;
-        }
-        else if (isOPBK&&Input.GetKeyDown(captureKey2))
-        {
-            bk.SetActive(false);
-            ResumeGame();
-            isOPBK = false;
-        }
+       
     }
 
     private void CaptureScreenshot()
@@ -123,13 +111,6 @@ public class CameraController1 : MonoBehaviour
 
         return targetTexture;
     }
-    public void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
 
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
-    }
 }
+    

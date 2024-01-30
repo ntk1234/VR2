@@ -5,13 +5,15 @@ using UnityEditor;
 
 public class CharacterFloat : MonoBehaviour
 {
-    public float floatForce = 5f;
+    public float floatForce = 3f;
     [SerializeField]
     public KeyCode floatKey = KeyCode.Space; // 默认输入键
 
     private bool isFloating = false;
     private Rigidbody rb;
     public bool isJump = true;
+    [SerializeField] private float floatDamping = 2f;
+    [SerializeField] private float moveSpeed = 5f;
 
     private void Start()
     {
@@ -30,6 +32,13 @@ public class CharacterFloat : MonoBehaviour
             rb.AddForce(Vector3.up * floatForce, ForceMode.Impulse);
         }
         }
+        if (isFloating)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+            Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed * Time.deltaTime;
+            transform.Translate(movement);
+        }
     }
 
     public void FixedUpdate()
@@ -38,6 +47,7 @@ public class CharacterFloat : MonoBehaviour
         if (isFloating)
         {
             rb.AddForce(Vector3.up * floatForce, ForceMode.Force);
+            rb.velocity *= Mathf.Clamp01(1f - floatDamping * Time.fixedDeltaTime);
         }
     }
 }
