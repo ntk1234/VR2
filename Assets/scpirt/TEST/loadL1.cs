@@ -18,7 +18,7 @@ public class loadL1 : MonoBehaviour
         if (Input.anyKeyDown)
         {
 
-            SceneManager.LoadScene("L1");
+            SceneManager.LoadScene("L1C");
 
         }
     }

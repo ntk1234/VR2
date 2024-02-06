@@ -10,13 +10,21 @@ public class ObjectDetection : MonoBehaviour
     private Camera mainCamera;
     private bool isObjectDetected = false;
     public CameraController1 CC;
+   
     public PanCol PC;
+    public L1Manger L;
 
+ 
+    public bool ispressed = false;
 
+    public KeyCode captureKey = KeyCode.C;
     private void Start()
     {
         mainCamera = Camera.main;
         InvokeRepeating("DetectObject", detectionDelay, detectionDelay);
+        L = FindObjectOfType<L1Manger>();
+        CC = FindObjectOfType< CameraController1>();
+        ispressed = false;
     }
 
     private void DetectObject()
@@ -25,9 +33,9 @@ public class ObjectDetection : MonoBehaviour
         {
             Vector3 viewPos = mainCamera.WorldToViewportPoint(obj.transform.position);
 
-            if (viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1 && viewPos.z > 0)
+            //if (viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1 && viewPos.z > 0)
 
-                if (viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1 && viewPos.z > 0)
+                if (viewPos.x > 0 && viewPos.x <  1&& viewPos.y > 0 && viewPos.y < 1&& viewPos.z > 0)
                 {
                     if (!isObjectDetected && CC.isTakPH)
                     {
@@ -38,15 +46,23 @@ public class ObjectDetection : MonoBehaviour
                             // 在此處啟動你想要執行的腳本或功能
                             // 例如，調用其他組件的方法或激活其他物體
                             PC.isCKSHARK = true;
-                        }
+                            isObjectDetected = true;
 
-                        isObjectDetected = true;
+                            
+                                if (!ispressed) // 只執行一次
+                                {
+                                    L.checkPressNum += 1;
+                                    ispressed = true;
+                                }
+                            
+
+                        }
+                        
+
                     }
-                }
-                else
-                {
-                    isObjectDetected = false;
+                   
                 }
         }
+        isObjectDetected = false;
     }
 }

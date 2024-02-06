@@ -12,10 +12,14 @@ public class CameraController1 : MonoBehaviour
     public GameObject[] photoPreviews; 
     public PanCol PC;
     public bool isTakPH = false;
+    public ObjectDetection OD;
+    public float captureDelay = 0.5f; // 按鍵按下的延遲時間
+
+    private float lastCaptureTime; // 上次按鍵按下的時間
 
     private void Start()
     {
-        
+       
         foreach (GameObject preview in photoPreviews)
         {
             preview.SetActive(false);
@@ -25,24 +29,32 @@ public class CameraController1 : MonoBehaviour
 
     private void Update()
     {
-        if (!PC.isOPBK && Input.GetKeyDown(captureKey))
+        if (!PC.isOPBK && Input.GetKeyDown(captureKey) && Time.time - lastCaptureTime > captureDelay)
         {
             isTakPH = true;
+            lastCaptureTime = Time.time; // 更新上次按鍵按下的時間
+
             CaptureScreenshot();
-            
+        }
+        if (!PC.isOPBK && Input.GetKeyUp(captureKey))
+        {
+            OD.ispressed = false;
+
         }
 
-       
+
+
     }
 
     private void CaptureScreenshot()
     {
+        
         string fileName = "screenshot.png";
         string filePath = System.IO.Path.Combine(Application.persistentDataPath, fileName);
 
         ScreenCapture.CaptureScreenshot(filePath);
         Debug.Log("Screenshot captured: " + filePath);
-
+        
         StartCoroutine(GenerateThumbnail(filePath));
     }
 
@@ -76,7 +88,9 @@ public class CameraController1 : MonoBehaviour
         thumbnailImage.texture = resizedTexture;
         thumbnailImage.gameObject.SetActive(true);
 
+        
         StartCoroutine(HideThumbnailAfterDelay(3f));
+        
     }
 
     private void UpdatePhotoPreviews()
@@ -95,6 +109,7 @@ public class CameraController1 : MonoBehaviour
 
     private IEnumerator HideThumbnailAfterDelay(float delay)
     {
+        
         yield return new WaitForSecondsRealtime(delay);
         thumbnailImage.gameObject.SetActive(false);
         isTakPH = false;

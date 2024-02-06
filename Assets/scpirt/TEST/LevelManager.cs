@@ -23,7 +23,7 @@ public class LevelManager: MonoBehaviour
      if (tri.GetState(type))
         {
 
-            SceneManager.LoadScene("L1VR");
+            SceneManager.LoadScene("L1VRC");
 
 
 
