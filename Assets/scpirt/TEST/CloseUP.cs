@@ -1,41 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class CloseUP : MonoBehaviour
+namespace UnityStandardAssets.Characters.ThirdPerson
 {
-    public CharacterFloat CF;
-    // Start is called before the first frame update
-    void Start()
+    public class CloseUP : MonoBehaviour
     {
-        /*CF = GetComponent<CharacterFloat>();*/
-    }
+        public CharacterFloat CF;
+        // Start is called before the first frame update
+        void Start()
+        {
+            /*CF = GetComponent<CharacterFloat>();*/
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        // Update is called once per frame
+        void Update()
+        {
 
-    /* void OnCollisionEnter(Collider collision)
+        }
 
-     {
-         if (collision.gameObject.CompareTag("Player"))
+        /* void OnCollisionEnter(Collider collision)
+
          {
-             Debug.Log("CFON");
+             if (collision.gameObject.CompareTag("Player"))
+             {
+                 Debug.Log("CFON");
 
-             CF.isJump = false;
+                 CF.isJump = false;
+
+             }
 
          }
 
-     }
-
-    void OnCollisionExit(Collision collision)
-     {
-         if (collision.gameObject.CompareTag("Player"))
+        void OnCollisionExit(Collision collision)
          {
+             if (collision.gameObject.CompareTag("Player"))
+             {
 
-             CF.isJump = true;
-         }
-     }*/
+                 CF.isJump = true;
+             }
+         }*/
+    }
 }

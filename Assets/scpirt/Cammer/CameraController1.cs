@@ -16,6 +16,7 @@ public class CameraController1 : MonoBehaviour
     public float captureDelay = 0.5f; // 按鍵按下的延遲時間
 
     private float lastCaptureTime; // 上次按鍵按下的時間
+   public Camera mainCamera;
 
     private void Start()
     {
@@ -36,7 +37,7 @@ public class CameraController1 : MonoBehaviour
 
             CaptureScreenshot();
         }
-        if (!PC.isOPBK && Input.GetKeyUp(captureKey))
+        else
         {
             OD.ispressed = false;
 
@@ -52,9 +53,35 @@ public class CameraController1 : MonoBehaviour
         string fileName = "screenshot.png";
         string filePath = System.IO.Path.Combine(Application.persistentDataPath, fileName);
 
-        ScreenCapture.CaptureScreenshot(filePath);
+        // 先將UI物件的顯示設置為不可見
+        foreach (GameObject preview in photoPreviews)
+        {
+            preview.SetActive(false);
+        }
+
+        // 捕獲指定標籤的物件
+        RenderTexture renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        mainCamera = Camera.main;
+        mainCamera.targetTexture = renderTexture;
+        mainCamera.Render();
+
+        RenderTexture.active = renderTexture;
+        Texture2D screenshotTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        screenshotTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        screenshotTexture.Apply();
+
+        // 保存截圖
+        byte[] imageBytes = screenshotTexture.EncodeToPNG();
+        System.IO.File.WriteAllBytes(filePath, imageBytes);
         Debug.Log("Screenshot captured: " + filePath);
-        
+
+        // 釋放資源
+        RenderTexture.active = null;
+        mainCamera.targetTexture = null;
+        renderTexture.Release();
+        Destroy(renderTexture);
+
+        // 生成縮略圖
         StartCoroutine(GenerateThumbnail(filePath));
     }
 
