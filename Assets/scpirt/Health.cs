@@ -14,6 +14,7 @@ public class Health: MonoBehaviour
     public int fishCount = 0;  // 鱼的计数器
     public int sharkCount = 0;
     public MouseLock2 ML2;
+  
     // 物件的當前生命值
 
     private void Start()
@@ -39,6 +40,7 @@ public class Health: MonoBehaviour
 
         if (currentHealth <= 0f)
         {
+          
             Die(); // 如果當前生命值小於等於 0，則執行死亡動作
         }
     }
@@ -59,7 +61,7 @@ public class Health: MonoBehaviour
 
 
     // 死亡
-    private void Die()
+    public void Die()
     {
         // 在這裡實現物件死亡時的動作
         Debug.Log("Player died!");
@@ -69,4 +71,6 @@ public class Health: MonoBehaviour
         ML2.UnlockMouse();
         PM1.PauseGame();
     }
+
+  
 }
