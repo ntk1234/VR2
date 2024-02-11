@@ -20,7 +20,7 @@ public class gasHealth: MonoBehaviour
     public bool isaddgass = false;
 
     public bool isdie = false;
-  
+    public float a =0;
     // 物件的當前生命值
 
     private void Start()
@@ -85,16 +85,14 @@ public class gasHealth: MonoBehaviour
     {
         if (isaddgass)
         {
-            float a = currentHealth;
-            currentHealth += 20f;
-            isaddgass = false;
-        }
-
-
-
-     
-      
-            
+            currentHealth += 0.1f;
+            a += 0.05f;
+            if (a > 20f)
+            {
+                a = 0;
+                isaddgass = false;
+            }
+        }       
        
     }
  
