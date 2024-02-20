@@ -34,9 +34,10 @@ public class CameraController1 : MonoBehaviour
         {
             isTakPH = true;
             lastCaptureTime = Time.time; // 更新上次按鍵按下的時間
-
+            OD.i = 0;
             CaptureScreenshot();
         }
+       
         else
         {
             OD.ispressed = false;
@@ -140,6 +141,7 @@ public class CameraController1 : MonoBehaviour
         yield return new WaitForSecondsRealtime(delay);
         thumbnailImage.gameObject.SetActive(false);
         isTakPH = false;
+        
     }
 
     private Texture2D ScaleTexture(Texture2D sourceTexture, int targetWidth, int targetHeight)

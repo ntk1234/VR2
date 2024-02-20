@@ -18,6 +18,8 @@ public class ObjectDetection : MonoBehaviour
     public bool ispressed = false;
 
     public KeyCode captureKey = KeyCode.C;
+
+    public int i = 0;
     private void Start()
     {
         mainCamera = Camera.main;
@@ -37,7 +39,7 @@ public class ObjectDetection : MonoBehaviour
 
                 if (viewPos.x > 0 && viewPos.x <  1&& viewPos.y > 0 && viewPos.y < 1&& viewPos.z > 0)
                 {
-                    if (!isObjectDetected && CC.isTakPH)
+                    if (!isObjectDetected && CC.isTakPH )
                     {
                         // 偵測到物體後的操作
                         Debug.Log("Object detected!");
@@ -49,17 +51,25 @@ public class ObjectDetection : MonoBehaviour
                             isObjectDetected = true;
 
                             
-                                if (!ispressed) // 只執行一次
+                                if (!ispressed&&i<=0) // 只執行一次
                                 {
+                                    
+
                                     L.checkPressNum += 1;
+                                    ++ i;
                                     ispressed = true;
                                 }
                             
-
+                           
                         }
                         
 
                     }
+
+                    else
+                {
+                    i=0;
+                }
                    
                 }
         }

@@ -21,18 +21,22 @@ public class gasHealth: MonoBehaviour
 
     public bool isdie = false;
     public float a =0;
+
+    public PanCol PC;
     // 物件的當前生命值
 
     private void Start()
     {
         currentHealth = maxHealth; // 初始化當前生命值為最大生命值
         isdie = false;
+        PC = FindObjectOfType<PanCol>();
 
     }
     public void Update()
 
     {
-
+        if (!PC.isOPBK) { 
+            currentHealth -= 0.05f; 
         if (!isnogass&&Input.GetKeyDown(captureKey))
         {
             isaddgass = true;
@@ -54,7 +58,7 @@ public class gasHealth: MonoBehaviour
             isnogass = true;
         }
 
-        currentHealth -= 0.05f;
+        
         if(currentHealth>=100f)
         {
             currentHealth =100f;
@@ -71,7 +75,7 @@ public class gasHealth: MonoBehaviour
             // 如果當前生命值小於等於 0，則執行死亡動作
         }
 
-
+        }
     }
   
 
