@@ -707,6 +707,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7445967868912401205, guid: 1e910942e259db843bfc27163989291b, type: 3}
+      propertyPath: m_TagString
+      value: ClownFish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1461,7 +1465,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1406909349}
         m_TargetAssemblyTypeName: PanCol, Assembly-CSharp
-        m_MethodName: openPSK
+        m_MethodName: openPCF
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1813,6 +1817,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: b59c6b9bb0106ba4a8eacb078283203c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b59c6b9bb0106ba4a8eacb078283203c, type: 3}
+      propertyPath: m_TagString
+      value: ClownFish
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b59c6b9bb0106ba4a8eacb078283203c, type: 3}
       propertyPath: m_LocalScale.x
@@ -3201,6 +3209,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2732913436736391317, guid: b13cdd794ef6df8429509de84350b89e, type: 3}
+      propertyPath: m_TagString
+      value: ClownFish
+      objectReference: {fileID: 0}
     - target: {fileID: 7687782069606154885, guid: b13cdd794ef6df8429509de84350b89e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4176,7 +4188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &383282213
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6128,7 +6140,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 126.999985}
+  m_AnchoredPosition: {x: -80, y: 166}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615019406
@@ -6164,28 +6176,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Clownfish belong to the subfamily Anemone fish of the damselfish family.They
-    are mainly found in the Pacific Ocean, the Indian Ocean, and the Red Sea.There
-    are 28 known species of clownfish.
-
-    
-
-    Clownfish have bright body colors
-    and distinctive body stripes.They are called "clownfish" because they have one
-    or two white stripes on their faces, resembling the makeup of clowns in Chinese
-    Peking opera.
-
-    
-
-    Clownfish form a symbiotic relationship with anemones,
-    using them as a dwelling place with defensive functions.
-
-    The presence of
-    clownfish attracts other fish to approach the anemone, increasing the chance
-    of predation by the anemone.
-
-    Due to their association with anemones, clownfish
-    are also referred to as "anemonefish."  '
+  m_Text: "Clownfish belong to the subfamily Anemone fish of the damselfish\n family.They
+    are mainly found in the Pacific Ocean, the Indian \nOcean, and the Red Sea.There
+    are 28 known species of clownfish.\n\nClownfish have bright body colors and distinctive
+    body stripes.\nThey are called \"clownfish\" because they have one or two white\n
+    stripes on their faces, resembling the makeup of clowns in \nChinese Peking opera.\n\nClownfish
+    form a symbiotic relationship with anemones, using them \nas a dwelling place
+    with defensive functions.\n\nThe presence of clownfish attracts other fish to
+    approach the\n anemone, increasing the chance of predation by the anemone.\nDue
+    to their association with anemones, clownfish are also referred\n to as \"anemonefish.\"  "
 --- !u!222 &615019407
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6729,6 +6728,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 43c51d0a1dbcef44ba3d1acb88c9dbb6, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 43c51d0a1dbcef44ba3d1acb88c9dbb6, type: 3}
+      propertyPath: m_TagString
+      value: ClownFish
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43c51d0a1dbcef44ba3d1acb88c9dbb6, type: 3}
       propertyPath: m_LocalScale.x
@@ -8151,6 +8154,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2732913436736391317, guid: b13cdd794ef6df8429509de84350b89e, type: 3}
+      propertyPath: m_TagString
+      value: ClownFish
+      objectReference: {fileID: 0}
     - target: {fileID: 7687782069606154885, guid: b13cdd794ef6df8429509de84350b89e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8826,7 +8833,7 @@ RectTransform:
   m_GameObject: {fileID: 949499077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.5192385, y: 3.836115, z: 3.4923}
+  m_LocalScale: {x: 6.5192385, y: 4.2197266, z: 3.4923}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 825632240}
@@ -15336,7 +15343,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1406909349}
         m_TargetAssemblyTypeName: PanCol, Assembly-CSharp
-        m_MethodName: closePSK
+        m_MethodName: closePCF
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16086,7 +16093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1357773716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16896,10 +16903,15 @@ MonoBehaviour:
   isOPBK: 0
   ML: {fileID: 1761913854}
   isCKSHARK: 0
+  isCKCFish: 0
   imageSK1: {fileID: 1129596846}
   imageSK2: {fileID: 906336978}
+  imageCF1: {fileID: 1537533695}
+  imageCF2: {fileID: 101658344}
   pSK: {fileID: 35579715}
+  pCF: {fileID: 383282212}
   isPSK: 0
+  isPCF: 0
 --- !u!114 &1406909350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19838,7 +19850,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661841901}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1661841906
 Camera:
   m_ObjectHideFlags: 0
@@ -20558,6 +20570,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToDetect:
   - {fileID: 353315057}
+  - {fileID: 2052601296441635386}
+  - {fileID: 439950000}
+  - {fileID: 1145149605}
   detectionDelay: 1
   CC: {fileID: 1652508971}
   PC: {fileID: 1406909349}
@@ -23862,7 +23877,7 @@ GameObject:
   - component: {fileID: 4295180658963307096}
   m_Layer: 0
   m_Name: Fish 0 Pref
-  m_TagString: SmallF
+  m_TagString: ClownFish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

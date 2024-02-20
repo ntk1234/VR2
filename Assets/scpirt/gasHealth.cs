@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
 
 public class gasHealth: MonoBehaviour
 {
@@ -25,11 +26,15 @@ public class gasHealth: MonoBehaviour
     public PanCol PC;
     // 物件的當前生命值
 
+
+
     private void Start()
     {
         currentHealth = maxHealth; // 初始化當前生命值為最大生命值
         isdie = false;
         PC = FindObjectOfType<PanCol>();
+
+     
 
     }
     public void Update()
@@ -65,8 +70,8 @@ public class gasHealth: MonoBehaviour
             isaddgass = false;
         }
 
-
-        if (currentHealth <= 0f)
+     
+            if (currentHealth <= 0f)
         {
 
             currentHealth = 0f;

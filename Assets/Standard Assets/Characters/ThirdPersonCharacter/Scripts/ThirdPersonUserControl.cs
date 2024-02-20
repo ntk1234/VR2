@@ -44,12 +44,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             if (Input.GetButton("Fire3"))
             {
                 m_Character.m_MoveSpeedMultiplier = 2f;
-                Debug.Log("RUN");
+                //Debug.Log("RUN");
             }
             else
             {
                 m_Character.m_MoveSpeedMultiplier = 1f;
-                Debug.Log("RUN2");
+                //Debug.Log("RUN2");
             }
 
         }

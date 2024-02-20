@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectDetection : MonoBehaviour
 {
     public GameObject[] objectsToDetect; // 要偵測的物體
+
     public float detectionDelay = 1f; // 偵測間隔時間
 
     private Camera mainCamera;
@@ -34,44 +35,73 @@ public class ObjectDetection : MonoBehaviour
         foreach (GameObject obj in objectsToDetect)
         {
             Vector3 viewPos = mainCamera.WorldToViewportPoint(obj.transform.position);
+            float distance = Vector3.Distance(mainCamera.transform.position, obj.transform.position);
 
-            //if (viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1 && viewPos.z > 0)
-
-                if (viewPos.x > 0 && viewPos.x <  1&& viewPos.y > 0 && viewPos.y < 1&& viewPos.z > 0)
+            if (viewPos.x > 0 && viewPos.x < 1 && viewPos.y > 0 && viewPos.y < 1 && viewPos.z > 0)
+            {
+                /*if (distance <= 30f)
                 {
-                    if (!isObjectDetected && CC.isTakPH )
+                    Debug.Log("Object detected!");*/
+                    if (!isObjectDetected && CC.isTakPH)
                     {
+                      
                         // 偵測到物體後的操作
-                        Debug.Log("Object detected!");
-                        if (obj.CompareTag("Shark"))
-                        {
-                            // 在此處啟動你想要執行的腳本或功能
-                            // 例如，調用其他組件的方法或激活其他物體
-                            PC.isCKSHARK = true;
-                            isObjectDetected = true;
 
-                            
-                                if (!ispressed&&i<=0) // 只執行一次
+                            if (obj.CompareTag("Shark")&&distance <= 30f)
+                            {
+                                // 在此處啟動你想要執行的腳本或功能
+                                // 例如，調用其他組件的方法或激活其他物體
+                                PC.isCKSHARK = true;
+                                isObjectDetected = true;
+
+
+                                if (!ispressed && i <= 0) // 只執行一次
                                 {
-                                    
+
 
                                     L.checkPressNum += 1;
-                                    ++ i;
+                                    ++i;
                                     ispressed = true;
                                 }
+
+                                    else
+                                    {
+                                        i = 0;
+                                    }
+                             }
                             
-                           
-                        }
+                             if (obj.CompareTag("ClownFish")&&distance <= 30f)
+                            {
+                                // 在此處啟動你想要執行的腳本或功能
+                                // 例如，調用其他組件的方法或激活其他物體
+                                PC.isCKCFish = true;
+                                isObjectDetected = true;
+
+
+                                if (!ispressed && i <= 0) // 只執行一次
+                                {
+
+
+                                    // L.checkPressNum += 1;
+                                    ++i;
+                                    ispressed = true;
+                                }
+                                else
+                                {
+                                    i = 0;
+                                }
+
+                    }
+                          
+
                         
 
                     }
 
-                    else
-                {
-                    i=0;
-                }
-                   
-                }
+
+            
+                //}
+            }
         }
         isObjectDetected = false;
     }

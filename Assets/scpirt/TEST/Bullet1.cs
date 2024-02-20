@@ -16,7 +16,7 @@ public class Bullet1: MonoBehaviour
             Destroy(gameObject); // 碰撞到地图时销毁子弹对象
         }
 
-        if (collision.gameObject.CompareTag("SmallF"))
+        if (collision.gameObject.CompareTag("ClownFish"))
         {
             Destroy(gameObject); // 碰撞到地图时销毁子弹对象
         }

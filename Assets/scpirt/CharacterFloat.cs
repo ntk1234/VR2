@@ -42,7 +42,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         public void Update()
         {
-            Debug.Log("JBOOT" + jumpboost);
+            //Debug.Log("JBOOT" + jumpboost);
             // 检测指定按键的按下
             if (isJump)
             {

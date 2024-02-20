@@ -14,10 +14,15 @@ public class PanCol : MonoBehaviour
     public bool isOPBK = false;
     public MouseLock2 ML;
     public bool isCKSHARK = false;
+    public bool isCKCFish = false;
     public GameObject imageSK1;
     public GameObject imageSK2;
+    public GameObject imageCF1;
+    public GameObject imageCF2;
     public GameObject pSK;
+    public GameObject pCF;
     public bool isPSK = false;
+    public bool isPCF = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +62,15 @@ public class PanCol : MonoBehaviour
         {
             pSK.SetActive(false);
         }
-            if (!isOPBK && Input.GetKeyDown(captureKey2))
+        if (isPCF)
+        {
+            pCF.SetActive(true);
+        }
+        else
+        {
+            pCF.SetActive(false);
+        }
+        if (!isOPBK && Input.GetKeyDown(captureKey2))
         {
             bk.SetActive(true);
             PauseGame();
@@ -83,6 +96,10 @@ public class PanCol : MonoBehaviour
             {
                 isPSK = false;
             }
+            if (isPCF)
+            {
+                isPCF = false;
+            }
         }
 
         if (isCKSHARK)
@@ -90,7 +107,11 @@ public class PanCol : MonoBehaviour
             opSKINFO();
 
         }
+        if (isCKCFish)
+        {
+            opCFINFO();
 
+        }
 
     }
 
@@ -98,6 +119,12 @@ public class PanCol : MonoBehaviour
     {
         imageSK1.SetActive(false);
         imageSK2.SetActive(true);
+
+    }
+    public void opCFINFO()
+    {
+        imageCF1.SetActive(false);
+        imageCF2.SetActive(true);
 
     }
     public void isCKSpt()
@@ -128,6 +155,16 @@ public class PanCol : MonoBehaviour
     {
         isPSK = false;
      
+    }
+    public void openPCF()
+    {
+
+        isPCF = true;
+    }
+    public void closePCF()
+    {
+        isPCF = false;
+
     }
     public void PauseGame()
     {

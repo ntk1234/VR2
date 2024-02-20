@@ -34,14 +34,14 @@ public class CameraController1 : MonoBehaviour
         {
             isTakPH = true;
             lastCaptureTime = Time.time; // 更新上次按鍵按下的時間
-            OD.i = 0;
             CaptureScreenshot();
+            //OD.i = 0;
         }
        
         else
         {
             OD.ispressed = false;
-
+            
         }
 
 
