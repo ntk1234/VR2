@@ -9,9 +9,11 @@ public class CheckChests : MonoBehaviour
     public GameObject chestA;
     public GameObject chestB;
     public GameObject chestC;
+    public GameObject q;
     public GameObject chestMap;
     public GameObject chestMap1;
     public GameObject chestMap2;
+    public GameObject qMap;
     public GameObject boxA;
     public GameObject boxB;
     public GameObject boxC;
@@ -27,7 +29,7 @@ public class CheckChests : MonoBehaviour
     private bool isUpdateInputEnabledA = true;
     private bool isUpdateInputEnabledB = true;
     private bool isUpdateInputEnabledC = true;
-
+    private bool isUpdateInputEnabledQ = true;
     // 寶箱打開時調用此方法
     public void Update()
     {
@@ -63,6 +65,7 @@ public class CheckChests : MonoBehaviour
             ;
        
         }
+      
 
         // 檢查所有寶箱是否都已打開
         if (chestA.activeSelf && chestB.activeSelf && chestC.activeSelf)
@@ -74,6 +77,19 @@ public class CheckChests : MonoBehaviour
             be.isTextEnabled1 = false;
             be.isLeave = true;
 
+
+        }
+
+        if (q.activeSelf)
+        {
+            if (isUpdateInputEnabledQ)
+            {
+
+                qMap.SetActive(true);
+                ML2.UnlockMouse();
+                PM.PauseGame();
+            }
+         ;
 
         }
     }
@@ -96,6 +112,10 @@ public class CheckChests : MonoBehaviour
         isUpdateInputEnabledC = false;
     }
 
+    public void isUpdateInputQ()
+    {
+        isUpdateInputEnabledQ = false;
+    }
 
 
     public void desA()

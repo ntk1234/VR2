@@ -11,10 +11,10 @@ public class RaycastInteraction: MonoBehaviour
     public float shotDistance = 10.0f;
     public delegate void InteractDelegate(GameObject interactableObject); // 委派定義
     public static event InteractDelegate OnInteract; // 調查事件
-
+    public Camera mainCamera;
     private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * shotDistance, Color.red);
         RaycastHit hit;
         if (Input.GetButtonDown("Find"))
@@ -27,6 +27,12 @@ public class RaycastInteraction: MonoBehaviour
                     if (interactedObject.CompareTag("Chest")||(interactedObject.CompareTag("Boat")))
                     {
                         OnInteract?.Invoke(interactedObject);
+                    }
+                   FishMovement fm = interactedObject.GetComponent<FishMovement>();
+                    if (interactedObject.CompareTag("SmallF") &&!fm.isWalk)
+                    {
+                        Debug.Log("FQQQ" );
+                       OnInteract?.Invoke(interactedObject);
                     }
                 }
             }

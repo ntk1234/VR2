@@ -14,7 +14,7 @@ public class FishMovement : MonoBehaviour
     private Vector3 targetPosition;      // 目标位置
     private bool isPausing;              // 是否正在停顿
     private float pauseTimer;            // 停顿计时器
-
+    public bool isWalk = true;
     private void Start()
     {
         // 在开始时随机设置初始目标位置和停顿计时器
@@ -24,6 +24,7 @@ public class FishMovement : MonoBehaviour
 
     private void Update()
     {
+        if (isWalk) { 
         if (isPausing)
         {
             // 如果正在停顿，计时器减少
@@ -66,6 +67,10 @@ public class FishMovement : MonoBehaviour
             // 鱼向前移动
             transform.Translate(Vector3.forward * swimSpeed * Time.deltaTime);
         }
+
+
+        }
+
     }
 
     private Vector3 GetRandomPosition()
