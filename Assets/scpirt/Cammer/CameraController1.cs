@@ -18,9 +18,15 @@ public class CameraController1 : MonoBehaviour
     private float lastCaptureTime; // 上次按鍵按下的時間
    public Camera mainCamera;
 
+    public AudioSource audioSource;
+    public AudioClip camSound;
+
     private void Start()
     {
-       
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = camSound;
+        audioSource.volume = 0.5f;
+
         foreach (GameObject preview in photoPreviews)
         {
             preview.SetActive(false);
@@ -34,6 +40,7 @@ public class CameraController1 : MonoBehaviour
         {
             isTakPH = true;
             lastCaptureTime = Time.time; // 更新上次按鍵按下的時間
+            audioSource.Play();
             CaptureScreenshot();
             //OD.i = 0;
         }

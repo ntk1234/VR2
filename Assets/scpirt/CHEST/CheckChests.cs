@@ -92,6 +92,11 @@ public class CheckChests : MonoBehaviour
          ;
 
         }
+        /*if(q.activeSelf==false)
+        {
+            isUpdateInputEnabledQ = false
+            ;
+        }*/
     }
 
 
@@ -134,6 +139,11 @@ public class CheckChests : MonoBehaviour
         Destroy(boxC);
     }
 
+    public void closeQ()
+    {
+        q.SetActive(false);
+    }
+    
 
     }
 

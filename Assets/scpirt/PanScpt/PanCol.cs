@@ -21,8 +21,11 @@ public class PanCol : MonoBehaviour
     public GameObject imageCF2;
     public GameObject pSK;
     public GameObject pCF;
+    public GameObject cftalk;
     public bool isPSK = false;
     public bool isPCF = false;
+    public bool isOpenCFtalk = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -112,10 +115,37 @@ public class PanCol : MonoBehaviour
             opCFINFO();
 
         }
+        if (isOpenCFtalk)
+        {
+
+            showCancatch();
+        }
 
     }
 
-    public void opSKINFO()
+    public void showCancatch()
+    {
+        cftalk.SetActive(true);
+
+        StartCoroutine(HideThumbnailAfterDelay(3f));
+    }
+
+
+    private IEnumerator HideThumbnailAfterDelay(float delay)
+    {
+
+        yield return new WaitForSecondsRealtime(delay);
+        isOpenCFtalk = false;
+        cftalk.SetActive(false);
+    }
+
+    public void OpenCFtalk()
+    {
+        isOpenCFtalk = true;
+
+    }
+
+        public void opSKINFO()
     {
         imageSK1.SetActive(false);
         imageSK2.SetActive(true);

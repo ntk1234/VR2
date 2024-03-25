@@ -12,6 +12,7 @@ public class RaycastInteraction: MonoBehaviour
     public delegate void InteractDelegate(GameObject interactableObject); // 委派定義
     public static event InteractDelegate OnInteract; // 調查事件
     public Camera mainCamera;
+
     private void Update()
     {
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
