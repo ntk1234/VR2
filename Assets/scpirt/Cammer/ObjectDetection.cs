@@ -91,15 +91,40 @@ public class ObjectDetection : MonoBehaviour
                                     i = 0;
                                 }
 
-                    }
-                          
-
-                        
-
-                    }
 
 
-            
+                            }
+                            if (obj.CompareTag("turtle") && distance <= 30f)
+                            {
+                                // 在此處啟動你想要執行的腳本或功能
+                                // 例如，調用其他組件的方法或激活其他物體
+                                PC.isCKTud = true;
+                                isObjectDetected = true;
+
+
+                                if (!ispressed && i <= 0) // 只執行一次
+                                {
+
+
+                                    // L.checkPressNum += 1;
+                                    ++i;
+                                    ispressed = true;
+                                }
+                                else
+                                {
+                                    i = 0;
+                                }
+
+                            }
+
+
+
+
+
+                }
+
+
+
                 //}
             }
         }

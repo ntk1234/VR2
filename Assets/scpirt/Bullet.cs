@@ -29,6 +29,13 @@ public class Bullet : MonoBehaviour
             fm.isWalk = false;
             Destroy(gameObject); // 碰撞到地图时销毁子弹对象
         }
+        if (collision.gameObject.CompareTag("turtle"))
+        {
+
+            FishMovement fm = collision.gameObject.GetComponent<FishMovement>();
+            fm.isWalk = false;
+            Destroy(gameObject); // 碰撞到地图时销毁子弹对象
+        }
 
         if (collision.gameObject.CompareTag("Shark"))
         {

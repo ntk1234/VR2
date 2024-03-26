@@ -30,7 +30,7 @@ public class RaycastInteraction: MonoBehaviour
                         OnInteract?.Invoke(interactedObject);
                     }
                    FishMovement fm = interactedObject.GetComponent<FishMovement>();
-                    if (interactedObject.CompareTag("SmallF") &&!fm.isWalk)
+                    if (interactedObject.CompareTag("turtle") &&!fm.isWalk)
                     {
                         Debug.Log("FQQQ" );
                        OnInteract?.Invoke(interactedObject);

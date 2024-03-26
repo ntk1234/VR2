@@ -15,15 +15,20 @@ public class PanCol : MonoBehaviour
     public MouseLock2 ML;
     public bool isCKSHARK = false;
     public bool isCKCFish = false;
+    public bool isCKTud = false;
     public GameObject imageSK1;
     public GameObject imageSK2;
     public GameObject imageCF1;
     public GameObject imageCF2;
+    public GameObject imageTD1;
+    public GameObject imageTD2;
     public GameObject pSK;
     public GameObject pCF;
+    public GameObject pCT;
     public GameObject cftalk;
     public bool isPSK = false;
     public bool isPCF = false;
+    public bool isPTD = false;
     public bool isOpenCFtalk = false;
 
     // Start is called before the first frame update
@@ -57,6 +62,7 @@ public class PanCol : MonoBehaviour
             pCL2.SetActive(false);
         }
 
+
         if(isPSK)
         {
             pSK.SetActive(true);
@@ -73,6 +79,15 @@ public class PanCol : MonoBehaviour
         {
             pCF.SetActive(false);
         }
+        if (isPTD)
+        {
+            pCT.SetActive(true);
+        }
+        else
+        {
+            pCT.SetActive(false);
+        }
+
         if (!isOPBK && Input.GetKeyDown(captureKey2))
         {
             bk.SetActive(true);
@@ -103,6 +118,10 @@ public class PanCol : MonoBehaviour
             {
                 isPCF = false;
             }
+            if (isPTD)
+            {
+                isPTD = false;
+            }
         }
 
         if (isCKSHARK)
@@ -113,6 +132,11 @@ public class PanCol : MonoBehaviour
         if (isCKCFish)
         {
             opCFINFO();
+
+        }
+        if (isCKTud)
+        {
+            opTDINFO();
 
         }
         if (isOpenCFtalk)
@@ -157,6 +181,12 @@ public class PanCol : MonoBehaviour
         imageCF2.SetActive(true);
 
     }
+    public void opTDINFO()
+    {
+        imageTD1.SetActive(false);
+        imageTD2.SetActive(true);
+
+    }
     public void isCKSpt()
     {
         isStop = true;
@@ -194,6 +224,16 @@ public class PanCol : MonoBehaviour
     public void closePCF()
     {
         isPCF = false;
+
+    }
+    public void openPTD()
+    {
+
+        isPTD = true;
+    }
+    public void closePTD()
+    {
+        isPTD = false;
 
     }
     public void PauseGame()
