@@ -5893,7 +5893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &532298271
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10298,10 +10298,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 21
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -10309,15 +10309,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Clownfish belong to the subfamily Anemone fish of the damselfish\n family.They
-    are mainly found in the Pacific Ocean, the Indian \nOcean, and the Red Sea.There
-    are 28 known species of clownfish.\n\nClownfish have bright body colors and distinctive
-    body stripes.\nThey are called \"clownfish\" because they have one or two white\n
-    stripes on their faces, resembling the makeup of clowns in \nChinese Peking opera.\n\nClownfish
-    form a symbiotic relationship with anemones, using them \nas a dwelling place
-    with defensive functions.\n\nThe presence of clownfish attracts other fish to
-    approach the\n anemone, increasing the chance of predation by the anemone.\nDue
-    to their association with anemones, clownfish are also referred\n to as \"anemonefish.\"  "
+  m_Text: "Turtles are reptiles with a shell covering their bodies whoes have sturdy\n
+    legs with short feet and claws, and sea turtles have flippers instead of front
+    feet.\n\nTheir shells are made of bone, providing protection, and most turtles
+    can\n retract their head, legs, and tail inside the shell.\n\nThere are over
+    350 species of turtles.\n\nTurtles have long lifespans, with some species living
+    over 100 years.\n\nThey can be found in freshwater ponds, lakes, rivers, oceans,
+    forests and \ndeserts.\n\nTurtles have different diets, including worms, snails,
+    insects, jellyfish, \nshellfish, and plants. Tortoises primarily eat plants."
 --- !u!222 &1144959737
 CanvasRenderer:
   m_ObjectHideFlags: 0
