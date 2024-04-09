@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR;
+
 
 
 
@@ -31,7 +31,7 @@ public class Shooting : MonoBehaviour
             fireTimer = fireRate; // 初始時刻可以立即射擊
             currentBullets = maxBullets; // 初始時擁有最大子彈數量
             isReloading = false; // 初始時未在重新裝填
-            isVR = UnityEngine.XR.XRSettings.isDeviceActive;
+         
         }
 
     public void Update()
