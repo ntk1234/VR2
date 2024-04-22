@@ -17,27 +17,21 @@ public class Shooting : MonoBehaviour
         public  float fireTimer;                  // 射擊計時器
         public int currentBullets;               // 目前子彈數量
         public bool isReloading;                  // 是否正在重新裝填
-        public bool isVR ;
 
-       /* public Shooting shooting;
+          public Scoreshow sc;
 
-    public SteamVR_Input_Sources type;
-    public SteamVR_Behaviour_Pose controllerPose;
-        public SteamVR_Action_Vector2 teleport;
-        public SteamVR_Action_Boolean trigger;*/
 
-        public void Start()
+    public void Start()
         {
             fireTimer = fireRate; // 初始時刻可以立即射擊
             currentBullets = maxBullets; // 初始時擁有最大子彈數量
             isReloading = false; // 初始時未在重新裝填
-         
-        }
+            sc = FindObjectOfType<Scoreshow>();
+    }
 
     public void Update()
         {
             fireTimer += Time.deltaTime;
-           /* Vector2 trackpadInput = teleport.GetAxis(type);*/
            
 
             
@@ -46,7 +40,12 @@ public class Shooting : MonoBehaviour
                 {
                     Fire(); // 執行射擊操作
                     fireTimer = 0f; // 重置射擊計時器
+                    if (currentBullets != 0)
+                    {
+                        sc.scoreNunber -= 100;
+                    }
                     currentBullets--; // 減少子彈數量
+                    
                 }
 
            /*if (!isReloading && trigger.GetState(type) && fireTimer >= fireRate && currentBullets > 0)

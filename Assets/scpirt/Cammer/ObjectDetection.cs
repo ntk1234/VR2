@@ -14,8 +14,8 @@ public class ObjectDetection : MonoBehaviour
    
     public PanCol PC;
     public L1Manger L;
+   
 
- 
     public bool ispressed = false;
 
     public KeyCode captureKey = KeyCode.C;
@@ -28,6 +28,8 @@ public class ObjectDetection : MonoBehaviour
         L = FindObjectOfType<L1Manger>();
         CC = FindObjectOfType< CameraController1>();
         ispressed = false;
+
+     
     }
 
     private void DetectObject()
@@ -52,6 +54,9 @@ public class ObjectDetection : MonoBehaviour
                                 // 在此處啟動你想要執行的腳本或功能
                                 // 例如，調用其他組件的方法或激活其他物體
                                 PC.isCKSHARK = true;
+
+                             
+                                
                                 isObjectDetected = true;
 
 

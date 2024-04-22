@@ -31,12 +31,20 @@ public class PanCol : MonoBehaviour
     public bool isPTD = false;
     public bool isOpenCFtalk = false;
 
+    public bool stopscf =false ;
+    public bool stopscf2 = false;
+    public bool stopscf3 = false;
+    public bool stopscf4 = false;
+    public Scoreshow sc;
+
     // Start is called before the first frame update
     void Start()
     {
         pCL.SetActive(false);
         pCL2.SetActive(false);
         bk.SetActive(false);
+
+        sc = FindObjectOfType<Scoreshow>();
     }
 
     // Update is called once per frame
@@ -127,6 +135,11 @@ public class PanCol : MonoBehaviour
         if (isCKSHARK)
         {
             opSKINFO();
+           
+             
+             
+            
+
 
         }
         if (isCKCFish)
@@ -171,22 +184,39 @@ public class PanCol : MonoBehaviour
 
         public void opSKINFO()
     {
-        imageSK1.SetActive(false);
-        imageSK2.SetActive(true);
+        if (!stopscf)
+        {
+            imageSK1.SetActive(false);
+            imageSK2.SetActive(true);
+            sc.scoreNunber += 1000;
+            stopscf = true;
+        }
 
     }
     public void opCFINFO()
+
     {
-        imageCF1.SetActive(false);
+        if (!stopscf2)
+        {
+            imageCF1.SetActive(false);
         imageCF2.SetActive(true);
+            sc.scoreNunber += 1000;
+            stopscf2 = true;
+        }
 
     }
     public void opTDINFO()
-    {
-        imageTD1.SetActive(false);
-        imageTD2.SetActive(true);
 
+    {
+        if (!stopscf3)
+        {
+            imageTD1.SetActive(false);
+        imageTD2.SetActive(true);
+        sc.scoreNunber += 1000;
+        stopscf3 = true;
     }
+
+}
     public void isCKSpt()
     {
         isStop = true;
