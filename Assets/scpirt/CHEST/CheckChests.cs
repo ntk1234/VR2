@@ -28,8 +28,6 @@ public class CheckChests: MonoBehaviour
 
     public L2Manger L2M;
 
-    public Scoreshow sc;
-
     public bool isupdatedscoreA = false;
     public bool isupdatedscoreB = false;
     public bool isupdatedscoreC = false;
@@ -39,12 +37,6 @@ public class CheckChests: MonoBehaviour
     private bool isUpdateInputEnabledC = true;
     private bool isUpdateInputEnabledQ = true;
     // 寶箱打開時調用此方法
-
-    public void Start()
-    {
-        sc = FindObjectOfType<Scoreshow>();
-    }
-
     public void Update()
     {
         if (chestA.activeSelf)
@@ -57,7 +49,6 @@ public class CheckChests: MonoBehaviour
                     if (!isupdatedscoreA)
                     {
                         L2M.numOpenbox++;
-                        sc.scoreNunber += 1000;
                         isupdatedscoreA = true;
                     }
                     chestMap.SetActive(true);
@@ -77,7 +68,6 @@ public class CheckChests: MonoBehaviour
                     if (!isupdatedscoreB)
                     {
                         L2M.numOpenbox++;
-                        sc.scoreNunber += 1000;
                         isupdatedscoreB = true;
                     }
 
@@ -98,7 +88,6 @@ public class CheckChests: MonoBehaviour
                     if (!isupdatedscoreC)
                     {
                         L2M.numOpenbox++;
-                        sc.scoreNunber += 1000;
                         isupdatedscoreC = true;
                     }
 
