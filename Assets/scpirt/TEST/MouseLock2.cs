@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class MouseLock2: MonoBehaviour
 {
-    private bool isMouseLocked = true; // 是否鎖定鼠標
+    public bool isMouseLocked = true; // 是否鎖定鼠標
+    
 
     void Start()
     {
-        LockMouse();
+
+        
+            LockMouse();
+        
     }
 
     void Update()

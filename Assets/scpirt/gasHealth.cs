@@ -15,6 +15,7 @@ public class gasHealth: MonoBehaviour
     public GameObject gameOver;
     
     public MouseLock2 ML2;
+    public MouseLock3 ML3;
     public KeyCode captureKey = KeyCode.V;
     public int gasset = 2;
     public bool isnogass = false;
@@ -25,7 +26,7 @@ public class gasHealth: MonoBehaviour
 
     public PanCol PC;
     // 物件的當前生命值
-
+    public Scoreshow sc;
 
 
     private void Start()
@@ -33,15 +34,20 @@ public class gasHealth: MonoBehaviour
         currentHealth = maxHealth; // 初始化當前生命值為最大生命值
         isdie = false;
         PC = FindObjectOfType<PanCol>();
+        sc = FindObjectOfType<Scoreshow>();
 
-     
 
     }
     public void Update()
 
     {
-        if (!PC.isOPBK) { 
-            currentHealth -= 0.05f; 
+        if (!PC.isOPBK ) {
+            if (ML2.isMouseLocked != false
+               // || ML3.isMouseLocked == false
+                )
+            {
+                currentHealth -= 0.04f;
+            }
         if (!isnogass&&Input.GetKeyDown(captureKey))
         {
             isaddgass = true;
@@ -75,8 +81,10 @@ public class gasHealth: MonoBehaviour
         {
 
             currentHealth = 0f;
-            if (!isdie)
-            { Die(); }
+          if (!isdie)
+           { 
+                    Die();
+               }
             // 如果當前生命值小於等於 0，則執行死亡動作
         }
 
@@ -95,7 +103,7 @@ public class gasHealth: MonoBehaviour
         if (isaddgass)
         {
             currentHealth += 0.1f;
-            a += 0.05f;
+            a += 0.04f;
             if (a > 20f)
             {
                 a = 0;
@@ -113,7 +121,8 @@ public class gasHealth: MonoBehaviour
         Debug.Log("Player died!");
         // 此處只是銷毀物件，您可以根據遊戲需求進行相應的操作
         gameOver.SetActive(true);
-     
+        PlayerPrefs.SetInt("LevelPassed", 4);
+        sc.SaveScore();
         ML2.UnlockMouse();
         PM1.PauseGame();
         isdie = true;

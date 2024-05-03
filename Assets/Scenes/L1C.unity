@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 97956eaaf3b2cd84ebd810bd6ce66247, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028556, g: 0.22571613, b: 0.30692446, a: 1}
+  m_IndirectSpecularColor: {r: -0.0051436448, g: 0.008017432, b: 0.054614455, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3345042}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 1.11
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 55c8358fb8eb8b1419761719c3ff8488, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 24e28f52f97ac62418fb0af01a6d8a6f, type: 2}
   m_BuildHeightMesh: 1
 --- !u!114 &3345047
 MonoBehaviour:
@@ -1329,7 +1329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1404434379067854, guid: a89eef680e28b83449e3a6ba46792fbe, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1404434379067854, guid: a89eef680e28b83449e3a6ba46792fbe, type: 3}
       propertyPath: m_TagString
@@ -2638,7 +2638,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237303559}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f11dcbf1e1c230949a44aa167031cbdd, type: 3}
   m_Name: 
@@ -2650,13 +2650,14 @@ MonoBehaviour:
   health: {fileID: 237303560}
   gameOver: {fileID: 1460769469}
   ML2: {fileID: 1761913854}
+  ML3: {fileID: 0}
   captureKey: 118
   gasset: 2
   isnogass: 0
   isaddgass: 0
-  isdie: 0
   a: 0
   PC: {fileID: 1406909349}
+  sc: {fileID: 1765952337}
 --- !u!4 &246554407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 495228041590550081, guid: 8a53bd375f31ceb4eab2529b1f24ac46, type: 3}
@@ -7538,7 +7539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &712185637
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17853,6 +17854,10 @@ MonoBehaviour:
   be: {fileID: 1406909348}
   PM: {fileID: 1406909347}
   ML2: {fileID: 1761913854}
+  L2M: {fileID: 0}
+  isupdatedscoreA: 0
+  isupdatedscoreB: 0
+  isupdatedscoreC: 0
 --- !u!114 &1406909347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17943,6 +17948,7 @@ MonoBehaviour:
   checkPressNum: 0
   CPSK: {fileID: 594911918}
   canpress: {fileID: 85202687}
+  sc: {fileID: 1765952337}
 --- !u!1 &1408253320
 GameObject:
   m_ObjectHideFlags: 0
@@ -22120,6 +22126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2673105dad93889419e6ebf16d9527f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMouseLocked: 1
 --- !u!114 &1761913855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25887,7 +25894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5895466165155945477, guid: 68c5b749a9aa2f9428a406881fc6d481, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5895466165155945477, guid: 68c5b749a9aa2f9428a406881fc6d481, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26939,7 +26946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4251758614124198600, guid: 855c06816ff1b894ea6de3e9b5242174, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4382921930686463359, guid: 855c06816ff1b894ea6de3e9b5242174, type: 3}
       propertyPath: m_Layer
@@ -26999,7 +27006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6387025401812287916, guid: 855c06816ff1b894ea6de3e9b5242174, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7079330563322517460, guid: 855c06816ff1b894ea6de3e9b5242174, type: 3}
       propertyPath: m_Layer
