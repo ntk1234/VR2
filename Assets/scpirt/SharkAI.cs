@@ -11,8 +11,7 @@ public class SharkAI : MonoBehaviour
     private GameObject target; // 追蹤的目標
     private NavMeshAgent agent; // NavMesh 代理人
     private bool isTracking = false; // 是否正在追蹤玩家
-
-    public bool isTATK = false;
+   
     
     /*public AudioClip sharkSound;*/
 
@@ -29,15 +28,12 @@ public class SharkAI : MonoBehaviour
     {
         if (isTracking)
         {
-            if (target != null  )
+            if (target != null)
             {
-                if (isTATK)
-                {
-                    agent.SetDestination(target.transform.position);
-                }
+                agent.SetDestination(target.transform.position);
 
                 // 如果鯊魚與目標距離在攻擊範圍內，執行攻擊行為
-                if (Vector3.Distance(transform.position, target.transform.position) <= agent.stoppingDistance )
+                if (Vector3.Distance(transform.position, target.transform.position) <= agent.stoppingDistance)
                 {
                     AttackTarget();
                     /*if (sharkSound != null)

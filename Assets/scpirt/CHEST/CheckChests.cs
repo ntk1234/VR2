@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class CheckChests: MonoBehaviour
+public class CheckChests : MonoBehaviour
 {
     public GameObject chestA;
     public GameObject chestB;
@@ -17,8 +17,6 @@ public class CheckChests: MonoBehaviour
     public GameObject boxA;
     public GameObject boxB;
     public GameObject boxC;
-
-
     public UnityEvent onAllChestsOpened;
     public boatEvent be;
 
@@ -26,11 +24,7 @@ public class CheckChests: MonoBehaviour
 
     public MouseLock2 ML2;
 
-    public L2Manger L2M;
 
-    public bool isupdatedscoreA = false;
-    public bool isupdatedscoreB = false;
-    public bool isupdatedscoreC = false;
 
     private bool isUpdateInputEnabledA = true;
     private bool isUpdateInputEnabledB = true;
@@ -41,62 +35,35 @@ public class CheckChests: MonoBehaviour
     {
         if (chestA.activeSelf)
         {
-
+            if (isUpdateInputEnabledA)
             {
-                if (isUpdateInputEnabledA)
-                {
 
-                    if (!isupdatedscoreA)
-                    {
-                        L2M.numOpenbox++;
-                        isupdatedscoreA = true;
-                    }
-                    chestMap.SetActive(true);
-                    ML2.UnlockMouse();
-                    PM.PauseGame();
-                }
-           ;
+                chestMap.SetActive(true);
+                ML2.UnlockMouse();
+                PM.PauseGame();
             }
-            
-            }
+           ; }
         if (chestB.activeSelf)
         {
-      
+            if (isUpdateInputEnabledB)
             {
-                if (isUpdateInputEnabledB)
-                {
-                    if (!isupdatedscoreB)
-                    {
-                        L2M.numOpenbox++;
-                        isupdatedscoreB = true;
-                    }
 
-                    chestMap1.SetActive(true);
-                    ML2.UnlockMouse();
-                    PM.PauseGame();
-                }
-            ;
+                chestMap1.SetActive(true);
+                ML2.UnlockMouse();
+                PM.PauseGame();
             }
-            }
+            ; }
         if (chestC.activeSelf)
         {
-
-        
+            if (isUpdateInputEnabledC)
             {
-                if (isUpdateInputEnabledC)
-                {
-                    if (!isupdatedscoreC)
-                    {
-                        L2M.numOpenbox++;
-                        isupdatedscoreC = true;
-                    }
 
-                    chestMap2.SetActive(true);
-                    ML2.UnlockMouse();
-                    PM.PauseGame();
-                }
-            ;
+                chestMap2.SetActive(true);
+                ML2.UnlockMouse();
+                PM.PauseGame();
             }
+            ;
+       
         }
       
 

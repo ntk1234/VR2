@@ -17,7 +17,6 @@ TagManager:
   - projectile
   - FxTemporaire
   - turtle
-  - Scoreshow
   layers:
   - Default
   - TransparentFX

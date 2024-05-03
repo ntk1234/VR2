@@ -39,8 +39,6 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Shark"))
         {
-            SharkAI sai = collision.gameObject.GetComponent<SharkAI>();
-            sai.isTATK = true;
             Destroy(gameObject); // 碰撞到地图时销毁子弹对象
         }
     }
