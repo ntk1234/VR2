@@ -16,25 +16,51 @@ public class PanCol : MonoBehaviour
     public bool isCKSHARK = false;
     public bool isCKCFish = false;
     public bool isCKTud = false;
+
+    public bool isCKRf = false;
+    public bool isCKMf = false;
+    public bool isCKSf = false;
+
     public GameObject imageSK1;
     public GameObject imageSK2;
     public GameObject imageCF1;
     public GameObject imageCF2;
     public GameObject imageTD1;
     public GameObject imageTD2;
+
+    public GameObject imageRF1;
+    public GameObject imageRF2;
+
+    public GameObject imageMF1;
+    public GameObject imageMF2;
+
+    public GameObject imageSF1;
+    public GameObject imageSF2;
+
     public GameObject pSK;
     public GameObject pCF;
     public GameObject pCT;
+
+    public GameObject pCRF;
+    public GameObject pCMF;
+    public GameObject pCSF;
+
     public GameObject cftalk;
     public bool isPSK = false;
     public bool isPCF = false;
     public bool isPTD = false;
+    public bool isPRF = false;
+    public bool isPMF = false;
+    public bool isPSF = false;
     public bool isOpenCFtalk = false;
 
     public bool stopscf =false ;
     public bool stopscf2 = false;
     public bool stopscf3 = false;
     public bool stopscf4 = false;
+    public bool stopscf5 = false;
+    public bool stopscf6 = false;
+
     public Scoreshow sc;
 
     // Start is called before the first frame update
@@ -79,6 +105,7 @@ public class PanCol : MonoBehaviour
         {
             pSK.SetActive(false);
         }
+
         if (isPCF)
         {
             pCF.SetActive(true);
@@ -87,6 +114,7 @@ public class PanCol : MonoBehaviour
         {
             pCF.SetActive(false);
         }
+
         if (isPTD)
         {
             pCT.SetActive(true);
@@ -95,6 +123,40 @@ public class PanCol : MonoBehaviour
         {
             pCT.SetActive(false);
         }
+
+  //        public bool isPRF = false;
+  //public bool isPMF = false;
+  //  public bool isPSF = false;
+   // public GameObject pCRF;
+  //  public GameObject pCMF;
+  //  public GameObject pCSF;
+
+        if (isPRF)
+        {
+            pCRF.SetActive(true);
+        }
+        else
+        {
+            pCRF.SetActive(false);
+        }
+        if (isPMF)
+        {
+            pCMF.SetActive(true);
+        }
+        else
+        {
+            pCMF.SetActive(false);
+        }
+        if (isPSF)
+        {
+            pCSF.SetActive(true);
+        }
+        else
+        {
+            pCSF.SetActive(false);
+        }
+
+
 
         if (!isOPBK && Input.GetKeyDown(captureKey2))
         {
@@ -130,16 +192,29 @@ public class PanCol : MonoBehaviour
             {
                 isPTD = false;
             }
+
+             // public bool isPRF = false;
+   // public bool isPMF = false;
+    //public bool isPSF = false;
+
+            if (isPRF)
+            {
+                isPRF = false;
+            }
+            if (isPMF)
+            {
+                isPTD = false;
+            }
+            if (isPSF)
+            {
+                isPSF = false;
+            }
         }
 
         if (isCKSHARK)
         {
             opSKINFO();
            
-             
-             
-            
-
 
         }
         if (isCKCFish)
@@ -152,6 +227,27 @@ public class PanCol : MonoBehaviour
             opTDINFO();
 
         }
+
+
+        if (isCKRf)
+        {
+            opRFINFO();
+
+        }
+        if (isCKMf)
+        {
+            opMFINFO();
+
+        }
+        if (isCKSf)
+        {
+            opSFINFO();
+
+        }
+
+
+
+
         if (isOpenCFtalk)
         {
 
@@ -214,9 +310,46 @@ public class PanCol : MonoBehaviour
         imageTD2.SetActive(true);
         sc.scoreNunber += 1000;
         stopscf3 = true;
+        }
+
     }
 
-}
+    public void opRFINFO()
+
+    {
+        if (!stopscf4)
+        {
+            imageRF1.SetActive(false);
+            imageRF2.SetActive(true);
+            sc.scoreNunber += 1000;
+            stopscf4 = true;
+        }
+
+    }
+    public void opMFINFO()
+
+    {
+        if (!stopscf5)
+        {
+            imageMF1.SetActive(false);
+            imageMF2.SetActive(true);
+            sc.scoreNunber += 1000;
+            stopscf5 = true;
+        }
+
+    }
+    public void opSFINFO()
+
+    {
+        if (!stopscf6)
+        {
+            imageSF1.SetActive(false);
+            imageSF2.SetActive(true);
+            sc.scoreNunber += 1000;
+            stopscf6 = true;
+        }
+
+    }
     public void isCKSpt()
     {
         isStop = true;
@@ -266,6 +399,43 @@ public class PanCol : MonoBehaviour
         isPTD = false;
 
     }
+
+  //  public bool isPRF = false;
+   // public bool isPMF = false;
+   // public bool isPSF = false;
+
+    public void openPRF()
+    {
+
+        isPRF = true;
+    }
+    public void closePRF()
+    {
+        isPRF = false;
+
+    }
+    public void openPMF()
+    {
+
+        isPMF = true;
+    }
+    public void closePMF()
+    {
+        isPMF = false;
+
+    }
+    public void openPSF()
+    {
+
+        isPSF = true;
+    }
+    public void closePSF()
+    {
+        isPSF = false;
+
+    }
+
+
     public void PauseGame()
     {
     Time.timeScale = 0;
