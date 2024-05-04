@@ -2655,9 +2655,11 @@ MonoBehaviour:
   gasset: 2
   isnogass: 0
   isaddgass: 0
+  isdie: 0
   a: 0
   PC: {fileID: 1406909349}
   sc: {fileID: 1765952337}
+  isGasLock: 0
 --- !u!4 &246554407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 495228041590550081, guid: 8a53bd375f31ceb4eab2529b1f24ac46, type: 3}
@@ -4657,7 +4659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 127968, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 128204, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Layer
@@ -4682,6 +4684,10 @@ PrefabInstance:
     - target: {fileID: 134338, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 134338, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 135154, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Layer
@@ -4765,7 +4771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 152642, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 153036, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Layer
@@ -4959,6 +4965,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9579096, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11444856, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: runspeed
       value: 80
@@ -5150,6 +5160,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 716795339629548375, guid: a92a2137eabd3184da3f1a97e76addc7, type: 3}
   m_PrefabInstance: {fileID: 1353950304}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &415547007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 415547008}
+  m_Layer: 0
+  m_Name: trash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &415547008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415547007}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 553.5, y: 351, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417130673
 GameObject:
   m_ObjectHideFlags: 0
@@ -17855,9 +17896,13 @@ MonoBehaviour:
   PM: {fileID: 1406909347}
   ML2: {fileID: 1761913854}
   L2M: {fileID: 0}
+  sc: {fileID: 0}
   isupdatedscoreA: 0
   isupdatedscoreB: 0
   isupdatedscoreC: 0
+  isUpdateInputEnabledA: 1
+  isUpdateInputEnabledB: 1
+  isUpdateInputEnabledC: 1
 --- !u!114 &1406909347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17914,24 +17959,41 @@ MonoBehaviour:
   isCKSHARK: 0
   isCKCFish: 0
   isCKTud: 0
+  isCKRf: 0
+  isCKMf: 0
+  isCKSf: 0
   imageSK1: {fileID: 1129596846}
   imageSK2: {fileID: 906336978}
   imageCF1: {fileID: 1537533695}
   imageCF2: {fileID: 101658344}
   imageTD1: {fileID: 1114356999}
   imageTD2: {fileID: 1517645523}
+  imageRF1: {fileID: 415547007}
+  imageRF2: {fileID: 415547007}
+  imageMF1: {fileID: 415547007}
+  imageMF2: {fileID: 415547007}
+  imageSF1: {fileID: 415547007}
+  imageSF2: {fileID: 415547007}
   pSK: {fileID: 35579715}
   pCF: {fileID: 383282212}
   pCT: {fileID: 532298270}
+  pCRF: {fileID: 415547007}
+  pCMF: {fileID: 415547007}
+  pCSF: {fileID: 415547007}
   cftalk: {fileID: 2023511866}
   isPSK: 0
   isPCF: 0
   isPTD: 0
+  isPRF: 0
+  isPMF: 0
+  isPSF: 1
   isOpenCFtalk: 0
   stopscf: 0
   stopscf2: 0
   stopscf3: 0
   stopscf4: 0
+  stopscf5: 0
+  stopscf6: 0
   sc: {fileID: 1765952337}
 --- !u!114 &1406909350
 MonoBehaviour:
@@ -17947,8 +18009,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPressNum: 0
   CPSK: {fileID: 594911918}
+  showSC: {fileID: 1499181506}
   canpress: {fileID: 85202687}
+  NextPanel: {fileID: 1866261321}
   sc: {fileID: 1765952337}
+  isNestLevel: 0
+  ML2: {fileID: 1761913854}
+  GS: {fileID: 237303581}
 --- !u!1 &1408253320
 GameObject:
   m_ObjectHideFlags: 0
@@ -18940,7 +19007,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Move to Next Level\nCatch fish:'
+  m_Text: S???
 --- !u!222 &1499181507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22149,6 +22216,7 @@ MonoBehaviour:
   CC: {fileID: 1652508971}
   PC: {fileID: 1406909349}
   L: {fileID: 1406909350}
+  L3: {fileID: 0}
   ispressed: 0
   captureKey: 99
   i: 0
@@ -23314,7 +23382,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1891161111}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406909350}
+        m_TargetAssemblyTypeName: L1Manger, Assembly-CSharp
+        m_MethodName: NextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1891161111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27600,3 +27680,4 @@ SceneRoots:
   - {fileID: 276381434}
   - {fileID: 179847957}
   - {fileID: 1158818671}
+  - {fileID: 415547008}

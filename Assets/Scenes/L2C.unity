@@ -2341,7 +2341,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237303559}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f11dcbf1e1c230949a44aa167031cbdd, type: 3}
   m_Name: 
@@ -2362,6 +2362,7 @@ MonoBehaviour:
   a: 0
   PC: {fileID: 1406909349}
   sc: {fileID: 1765952337}
+  isGasLock: 0
 --- !u!4 &246554407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 495228041590550081, guid: 8a53bd375f31ceb4eab2529b1f24ac46, type: 3}
@@ -3959,7 +3960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 127968, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 128204, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Layer
@@ -3984,6 +3985,10 @@ PrefabInstance:
     - target: {fileID: 134338, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 134338, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 135154, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Layer
@@ -4067,7 +4072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 152642, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 153036, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_Layer
@@ -9931,6 +9936,9 @@ MonoBehaviour:
   isupdatedscoreA: 0
   isupdatedscoreB: 0
   isupdatedscoreC: 0
+  isUpdateInputEnabledA: 1
+  isUpdateInputEnabledB: 1
+  isUpdateInputEnabledC: 1
 --- !u!114 &1406909347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10037,8 +10045,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPressNum: 0
   CPSK: {fileID: 594911918}
+  showSC: {fileID: 0}
   canpress: {fileID: 85202687}
+  NextPanel: {fileID: 0}
   sc: {fileID: 0}
+  isNestLevel: 0
+  ML2: {fileID: 0}
+  GS: {fileID: 0}
 --- !u!114 &1406909351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10058,6 +10071,11 @@ MonoBehaviour:
   PM: {fileID: 1406909347}
   ML2: {fileID: 1761913854}
   sc: {fileID: 1765952337}
+  NextPanel: {fileID: 1866261321}
+  isNestLevel: 0
+  showSC: {fileID: 1499181506}
+  GS: {fileID: 237303581}
+  cc: {fileID: 1406909346}
 --- !u!1 &1408253320
 GameObject:
   m_ObjectHideFlags: 0
@@ -10716,7 +10734,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Move to Next Level\nCatch fish:'
+  m_Text: SS
 --- !u!222 &1499181507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14693,7 +14711,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1891161111}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406909351}
+        m_TargetAssemblyTypeName: L2Manger, Assembly-CSharp
+        m_MethodName: Nextlevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1891161111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33679,6 +33709,10 @@ PrefabInstance:
     - target: {fileID: 6082278080078386540, guid: 74f0fe750cb748b4981f0475a55df769, type: 3}
       propertyPath: m_Name
       value: mainP
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082278080078386540, guid: 74f0fe750cb748b4981f0475a55df769, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6526770474917173188, guid: 74f0fe750cb748b4981f0475a55df769, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

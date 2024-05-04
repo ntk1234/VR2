@@ -28,6 +28,8 @@ public class gasHealth: MonoBehaviour
     // 物件的當前生命值
     public Scoreshow sc;
 
+    public bool isGasLock = false;
+
 
     private void Start()
     {
@@ -42,11 +44,12 @@ public class gasHealth: MonoBehaviour
 
     {
         if (!PC.isOPBK ) {
-            if (ML2.isMouseLocked != false
-               // || ML3.isMouseLocked == false
-                )
+            if (ML2.isMouseLocked != false||isGasLock)
             {
-                currentHealth -= 0.04f;
+           
+
+                    currentHealth -= 0.01f;
+                
             }
         if (!isnogass&&Input.GetKeyDown(captureKey))
         {
@@ -103,7 +106,7 @@ public class gasHealth: MonoBehaviour
         if (isaddgass)
         {
             currentHealth += 0.1f;
-            a += 0.04f;
+            a += 0.01f;
             if (a > 20f)
             {
                 a = 0;

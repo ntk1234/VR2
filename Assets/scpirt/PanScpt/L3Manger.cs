@@ -22,6 +22,12 @@ public class L3Manger: MonoBehaviour
     public bool isupdatescoreB = false;
     public bool isupdatescoreC = false;
 
+    public GameObject NextPanel;
+    public bool isNestLevel = false;
+    public Text showSC;
+
+    public gasHealth GS;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,12 +79,26 @@ public class L3Manger: MonoBehaviour
         if (rfnum>=1 && mfnum>=1&& sfnum>=1)
         {
             canpress.SetActive(true);
-            sc.SaveScore();
+          
             PlayerPrefs.SetInt("LevelPassed", 3);
-            PM.ResumeGame();
+            NextPanel.SetActive(true);
+            GS.isGasLock = true;
             ML2.UnlockMouse();
-            SceneManager.LoadScene("title");
-            ;
+            showSC.text = "Score :" + sc.scoreNunber;
+            if (!isNestLevel)
+            { Time.timeScale = 0; }
         }
+    }
+
+    public void Nextlevel()
+    {
+
+        sc.SaveScore();
+        PM.ResumeGame();
+        ML2.UnlockMouse();
+        SceneManager.LoadScene("title");
+        Time.timeScale = 1;
+        GS.isGasLock = false;
+        isNestLevel = true;
     }
 }

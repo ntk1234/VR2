@@ -34,9 +34,9 @@ public class CheckChests: MonoBehaviour
     public bool isupdatedscoreB = false;
     public bool isupdatedscoreC = false;
 
-    private bool isUpdateInputEnabledA = true;
-    private bool isUpdateInputEnabledB = true;
-    private bool isUpdateInputEnabledC = true;
+    public bool isUpdateInputEnabledA = true;
+    public bool isUpdateInputEnabledB = true;
+    public bool isUpdateInputEnabledC = true;
     private bool isUpdateInputEnabledQ = true;
     // 寶箱打開時調用此方法
 
@@ -109,7 +109,9 @@ public class CheckChests: MonoBehaviour
             ;
             }
         }
-      
+        
+
+
 
         // 檢查所有寶箱是否都已打開
         if (chestA.activeSelf && chestB.activeSelf && chestC.activeSelf)
@@ -120,9 +122,10 @@ public class CheckChests: MonoBehaviour
 
             be.isTextEnabled1 = false;
             be.isLeave = true;
-
-
+         
         }
+
+
 
         if (q.activeSelf)
         {

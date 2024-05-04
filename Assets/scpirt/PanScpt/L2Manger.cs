@@ -14,6 +14,14 @@ public class L2Manger: MonoBehaviour
     public MouseLock2 ML2;
     public Scoreshow sc;
 
+    public GameObject NextPanel;
+    public bool isNestLevel = false;
+    public Text showSC;
+
+    public gasHealth GS;
+
+    public CheckChests cc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +45,33 @@ public class L2Manger: MonoBehaviour
      if (numOpenbox >= 3)
         {
             canpress.SetActive(true);
-            sc.SaveScore();
+           
             PlayerPrefs.SetInt("LevelPassed", 2);
-            PM.ResumeGame();
-            SceneManager.LoadScene("L3C");
-            ;
+
+            if (!cc.isUpdateInputEnabledA && !cc.isUpdateInputEnabledB && !cc.isUpdateInputEnabledC)
+            {
+                NextPanel.SetActive(true);
+                GS.isGasLock = true;
+            }
+           
+            ML2.UnlockMouse();
+            showSC.text = "Score :" + sc.scoreNunber;
+            if (!isNestLevel)
+            { Time.timeScale = 0; }
+
         }
+    }
+
+
+
+    public void Nextlevel()
+    {
+
+        sc.SaveScore();
+        PM.ResumeGame();
+        SceneManager.LoadScene("title");
+        Time.timeScale = 1;
+        GS.isGasLock = false;
+        isNestLevel = true;
     }
 }

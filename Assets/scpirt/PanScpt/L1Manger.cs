@@ -7,12 +7,18 @@ public class L1Manger: MonoBehaviour
 {
     public int checkPressNum = 0;
     public Text CPSK;
+    public Text showSC; 
     public GameObject canpress;
+    public GameObject NextPanel;
     public Scoreshow sc;
+    public bool isNestLevel = false;
+    public MouseLock2 ML2;
+    public gasHealth GS;
 
     // Start is called before the first frame update
     void Start()
     {
+        isNestLevel = false;
         canpress.SetActive(false);
 
         sc = FindObjectOfType<Scoreshow>();
@@ -28,9 +34,21 @@ public class L1Manger: MonoBehaviour
         {
             canpress.SetActive(true);
             PlayerPrefs.SetInt("LevelPassed", 1);
-            sc.SaveScore();
-            SceneManager.LoadScene("L2C");
-       
+            NextPanel.SetActive(true);
+            GS.isGasLock = true;
+            ML2.UnlockMouse();
+            showSC.text = "Score :"+sc.scoreNunber;
+           if (!isNestLevel)
+            { Time.timeScale = 0; }
         }
+    }
+
+   public void NextLevel()
+    {
+        sc.SaveScore();
+        SceneManager.LoadScene("title");
+        Time.timeScale = 1;
+        GS.isGasLock = false;
+        isNestLevel = true;
     }
 }
