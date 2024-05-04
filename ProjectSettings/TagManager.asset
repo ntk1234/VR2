@@ -18,6 +18,9 @@ TagManager:
   - FxTemporaire
   - turtle
   - Scoreshow
+  - Redfish
+  - Modfish
+  - Sfish
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ public class mainmeun : MonoBehaviour
     }
     public void StartGame3()
     {
-        SceneManager.LoadScene("level3");
+        SceneManager.LoadScene("L3C");
     }
 
     public void QuitGame()

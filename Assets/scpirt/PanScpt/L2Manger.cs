@@ -40,7 +40,7 @@ public class L2Manger: MonoBehaviour
             sc.SaveScore();
             PlayerPrefs.SetInt("LevelPassed", 2);
             PM.ResumeGame();
-            SceneManager.LoadScene("title");
+            SceneManager.LoadScene("L3C");
             ;
         }
     }
