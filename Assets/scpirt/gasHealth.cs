@@ -44,7 +44,7 @@ public class gasHealth: MonoBehaviour
 
     {
         if (!PC.isOPBK ) {
-            if (ML2.isMouseLocked != false||isGasLock)
+            if (ML2.isMouseLocked != false||!isGasLock)
             {
            
 

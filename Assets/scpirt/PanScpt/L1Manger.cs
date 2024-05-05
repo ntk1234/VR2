@@ -45,10 +45,11 @@ public class L1Manger: MonoBehaviour
 
    public void NextLevel()
     {
-        sc.SaveScore();
-        SceneManager.LoadScene("title");
         Time.timeScale = 1;
         GS.isGasLock = false;
         isNestLevel = true;
+        sc.SaveScore();
+        SceneManager.LoadScene("title");
+    
     }
 }
