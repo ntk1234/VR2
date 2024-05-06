@@ -28,6 +28,8 @@ public class L3Manger: MonoBehaviour
 
     public gasHealth GS;
 
+    public PanCol pc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class L3Manger: MonoBehaviour
             PlayerPrefs.GetInt("LevelPassed") != 2)
         { sc.RestScore(); }
             missionbox.SetActive(true);
+        pc.allstop = true;
         PM.PauseGame();
         ML2.UnlockMouse();
 

@@ -21,6 +21,7 @@ public class L2Manger: MonoBehaviour
     public gasHealth GS;
 
     public CheckChests cc;
+    public PanCol pc;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class L2Manger: MonoBehaviour
             PlayerPrefs.GetInt("LevelPassed") != 1)
         { sc.RestScore(); }
             missionbox.SetActive(true);
+        pc.allstop = true;
         PM.PauseGame();
         ML2.UnlockMouse();
 

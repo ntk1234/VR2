@@ -7,8 +7,10 @@ public class PanCol : MonoBehaviour
 {
     public GameObject pCL;
     public GameObject pCL2;
+    public GameObject pCL3;
     public bool isStop = false;
     public bool isStop2 = false;
+    public bool isStop3 = false;
     public KeyCode captureKey2 = KeyCode.B;
     public GameObject bk;
     public bool isOPBK = false;
@@ -61,6 +63,8 @@ public class PanCol : MonoBehaviour
     public bool stopscf5 = false;
     public bool stopscf6 = false;
 
+    public bool allstop = false;
+
     public Scoreshow sc;
 
     // Start is called before the first frame update
@@ -68,6 +72,7 @@ public class PanCol : MonoBehaviour
     {
         pCL.SetActive(false);
         pCL2.SetActive(false);
+        pCL3.SetActive(false);
         bk.SetActive(false);
 
         sc = FindObjectOfType<Scoreshow>();
@@ -76,184 +81,201 @@ public class PanCol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isStop)
+        if (!allstop)
         {
-            pCL.SetActive(true);
-            
-        }
-        else
-        {
-            pCL.SetActive(false);
-        }
+            if (isStop)
+            {
+                pCL.SetActive(true);
 
-        if (isStop2)
-        {
-            pCL2.SetActive(true);
-        }
-        else
-        {
-           
-            pCL2.SetActive(false);
-        }
-
-
-        if(isPSK)
-        {
-            pSK.SetActive(true);
-        }
-        else
-        {
-            pSK.SetActive(false);
-        }
-
-        if (isPCF)
-        {
-            pCF.SetActive(true);
-        }
-        else
-        {
-            pCF.SetActive(false);
-        }
-
-        if (isPTD)
-        {
-            pCT.SetActive(true);
-        }
-        else
-        {
-            pCT.SetActive(false);
-        }
-
-  //        public bool isPRF = false;
-  //public bool isPMF = false;
-  //  public bool isPSF = false;
-   // public GameObject pCRF;
-  //  public GameObject pCMF;
-  //  public GameObject pCSF;
-
-        if (isPRF)
-        {
-            pCRF.SetActive(true);
-        }
-        else
-        {
-            pCRF.SetActive(false);
-        }
-        if (isPMF)
-        {
-            pCMF.SetActive(true);
-        }
-        else
-        {
-            pCMF.SetActive(false);
-        }
-        if (isPSF)
-        {
-            pCSF.SetActive(true);
-        }
-        else
-        {
-            pCSF.SetActive(false);
-        }
-
-
-
-        if (!isOPBK && Input.GetKeyDown(captureKey2))
-        {
-            bk.SetActive(true);
-            PauseGame();
-            isOPBK = true;
-            ML.UnlockMouse();
-        }
-        else if (isOPBK && Input.GetKeyDown(captureKey2))
-        {
-            bk.SetActive(false);
-            ResumeGame();
-            isOPBK = false;
-            ML.LockMouse();
-            if (isStop) 
-                { 
-            
-                isStop = false;
             }
+            else
+            {
+                pCL.SetActive(false);
+            }
+
             if (isStop2)
             {
-                isStop2 = false;
+                pCL2.SetActive(true);
             }
-            if (isPSK)
+            else
             {
-                isPSK = false;
+
+                pCL2.SetActive(false);
             }
-            if (isPCF)
+            if (isStop3)
             {
-                isPCF = false;
+                pCL3.SetActive(true);
             }
-            if (isPTD)
+            else
             {
-                isPTD = false;
+
+                pCL3.SetActive(false);
             }
 
-             // public bool isPRF = false;
-   // public bool isPMF = false;
-    //public bool isPSF = false;
+
+            if (isPSK)
+            {
+                pSK.SetActive(true);
+            }
+            else
+            {
+                pSK.SetActive(false);
+            }
+
+            if (isPCF)
+            {
+                pCF.SetActive(true);
+            }
+            else
+            {
+                pCF.SetActive(false);
+            }
+
+            if (isPTD)
+            {
+                pCT.SetActive(true);
+            }
+            else
+            {
+                pCT.SetActive(false);
+            }
+
+            //        public bool isPRF = false;
+            //public bool isPMF = false;
+            //  public bool isPSF = false;
+            // public GameObject pCRF;
+            //  public GameObject pCMF;
+            //  public GameObject pCSF;
 
             if (isPRF)
             {
-                isPRF = false;
+                pCRF.SetActive(true);
+            }
+            else
+            {
+                pCRF.SetActive(false);
             }
             if (isPMF)
             {
-                isPTD = false;
+                pCMF.SetActive(true);
+            }
+            else
+            {
+                pCMF.SetActive(false);
             }
             if (isPSF)
             {
-                isPSF = false;
+                pCSF.SetActive(true);
             }
+            else
+            {
+                pCSF.SetActive(false);
+            }
+
+
+
+            if (!isOPBK && Input.GetKeyDown(captureKey2))
+            {
+                bk.SetActive(true);
+                PauseGame();
+                isOPBK = true;
+                ML.UnlockMouse();
+            }
+            else if (isOPBK && Input.GetKeyDown(captureKey2))
+            {
+                bk.SetActive(false);
+                ResumeGame();
+                isOPBK = false;
+                ML.LockMouse();
+                if (isStop)
+                {
+
+                    isStop = false;
+                }
+                if (isStop2)
+                {
+                    isStop2 = false;
+                }
+
+                if (isStop3)
+                {
+                    isStop3 = false;
+                }
+                if (isPSK)
+                {
+                    isPSK = false;
+                }
+                if (isPCF)
+                {
+                    isPCF = false;
+                }
+                if (isPTD)
+                {
+                    isPTD = false;
+                }
+
+                // public bool isPRF = false;
+                // public bool isPMF = false;
+                //public bool isPSF = false;
+
+                if (isPRF)
+                {
+                    isPRF = false;
+                }
+                if (isPMF)
+                {
+                    isPTD = false;
+                }
+                if (isPSF)
+                {
+                    isPSF = false;
+                }
+            }
+
+            if (isCKSHARK)
+            {
+                opSKINFO();
+
+
+            }
+            if (isCKCFish)
+            {
+                opCFINFO();
+
+            }
+            if (isCKTud)
+            {
+                opTDINFO();
+
+            }
+
+
+            if (isCKRf)
+            {
+                opRFINFO();
+
+            }
+            if (isCKMf)
+            {
+                opMFINFO();
+
+            }
+            if (isCKSf)
+            {
+                opSFINFO();
+
+            }
+
+
+
+
+            if (isOpenCFtalk)
+            {
+
+                showCancatch();
+            }
+
         }
-
-        if (isCKSHARK)
-        {
-            opSKINFO();
-           
-
-        }
-        if (isCKCFish)
-        {
-            opCFINFO();
-
-        }
-        if (isCKTud)
-        {
-            opTDINFO();
-
-        }
-
-
-        if (isCKRf)
-        {
-            opRFINFO();
-
-        }
-        if (isCKMf)
-        {
-            opMFINFO();
-
-        }
-        if (isCKSf)
-        {
-            opSFINFO();
-
-        }
-
-
-
-
-        if (isOpenCFtalk)
-        {
-
-            showCancatch();
-        }
-
     }
 
     public void showCancatch()
@@ -369,6 +391,16 @@ public class PanCol : MonoBehaviour
         isStop2 = false;
     }
 
+    public void isCKSpt3()
+    {
+        isStop3 = true;
+    }
+
+    public void isCKSpf3()
+    {
+        isStop3 = false;
+    }
+
     public void openPSK()
     {
         
@@ -433,6 +465,11 @@ public class PanCol : MonoBehaviour
     {
         isPSF = false;
 
+    }
+
+    public void Allrun()
+    {
+        allstop = false;
     }
 
 
