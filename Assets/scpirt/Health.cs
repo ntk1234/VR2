@@ -14,6 +14,7 @@ public class Health: MonoBehaviour
     public int fishCount = 0;  // 鱼的计数器
     public int sharkCount = 0;
     public MouseLock2 ML2;
+    public bool isReturn = false;
   
     // 物件的當前生命值
 
@@ -59,6 +60,10 @@ public class Health: MonoBehaviour
         killShark2.text = "Kill shark:" + sharkCount;
     }
 
+    public void Return()
+    {
+        isReturn = true;
+    }
 
     // 死亡
     public void Die()
@@ -69,7 +74,8 @@ public class Health: MonoBehaviour
         gameOver.SetActive(true);
         killShark.text = "Kill shark:" + sharkCount;
         ML2.UnlockMouse();
-        PM1.PauseGame();
+        if (!isReturn)
+        { PM1.PauseGame(); }
     }
 
   

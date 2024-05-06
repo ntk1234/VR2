@@ -175,7 +175,9 @@ public class ObjectDetection : MonoBehaviour
                             i = 0;
                         }
                     }
-                    if (obj.CompareTag("Sfish") && distance <= 200f)
+                    if (obj.CompareTag("Sfish")
+                       // && distance <= 200f
+                        )
                     {
                         // 在此處啟動你想要執行的腳本或功能
                         // 例如，調用其他組件的方法或激活其他物體

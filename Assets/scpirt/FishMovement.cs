@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishMovement : MonoBehaviour
 {
-    public float swimSpeed = 2f;         // 游泳速度
+    public float swimSpeed ;         // 游泳速度
     public float rotationSpeed = 5f;     // 旋转速度
     public float swimRange = 5f;         // 游动范围
     public float maxTurnAngle = 45f;     // 最大转向角度
@@ -15,11 +15,21 @@ public class FishMovement : MonoBehaviour
     private bool isPausing;              // 是否正在停顿
     private float pauseTimer;            // 停顿计时器
     public bool isWalk = true;
+
+    public float minSpeedIncrease = 0.5f;   // 最小速度增加值
+    public float maxSpeedIncrease = 1.0f;
+
+    public float recoveryTime = 2f;
     private void Start()
     {
         // 在开始时随机设置初始目标位置和停顿计时器
         targetPosition = GetRandomPosition();
         pauseTimer = Random.Range(minPauseTime, maxPauseTime);
+
+        float speedIncrease = Random.Range(minSpeedIncrease, maxSpeedIncrease);
+
+        // 將遊泳速度增加隨機值
+        swimSpeed += speedIncrease;
     }
 
     private void Update()
@@ -71,6 +81,12 @@ public class FishMovement : MonoBehaviour
 
         }
 
+        if (!isWalk)
+        {
+
+            StartCoroutine(RecoverMovement());
+        }
+
     }
 
     private Vector3 GetRandomPosition()
@@ -80,4 +96,14 @@ public class FishMovement : MonoBehaviour
         Vector3 randomPosition = new Vector3(randomCircle.x, 0f, randomCircle.y);
         return transform.position + randomPosition;
     }
+
+    private IEnumerator RecoverMovement()
+    {
+        // 等待恢復遊動的等待時間
+        yield return new WaitForSeconds(recoveryTime);
+
+        // 恢復遊動，重新計算魚的目標位置和停頓計時器
+        isWalk = true;
+    }
+
 }

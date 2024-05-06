@@ -7,9 +7,11 @@ public class RaycastInteraction: MonoBehaviour
     public float raycastDistance = 3f;  // 射線的距離
     public LayerMask interactableLayer; // 可交互物體的圖層
     public KeyCode interactKey = KeyCode.F; // 調查的按鍵
+    public KeyCode captureKey = KeyCode.C;
     public int shotPower = 20;
     public float shotDistance = 10.0f;
     public delegate void InteractDelegate(GameObject interactableObject); // 委派定義
+    public delegate void InteractDelegate2(GameObject interactableObject1); //
     public static event InteractDelegate OnInteract; // 調查事件
     public Camera mainCamera;
 
@@ -43,21 +45,21 @@ public class RaycastInteraction: MonoBehaviour
             }
         }
 
-        /*if (Input.GetKeyDown(interactKey))
+        if (Input.GetKeyDown(captureKey))
         {
             // 發出射線檢查是否有可交互物體
-            RaycastHit hit;
+            //RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance, interactableLayer))
             {
                 // 檢查射線擊中的物體是否為寶箱
-                GameObject interactedObject = hit.collider.gameObject;
-                if (interactedObject.CompareTag("Chest"))
+                GameObject interactedObject1 = hit.collider.gameObject;
+                if (interactedObject1.CompareTag("Sfish"))
                 {
                     // 執行寶箱調查的相關邏輯
-                    InteractWithChest(interactedObject);
+                    OnInteract?.Invoke(interactedObject1);
                 }
             }
-        }*/
+        }
 
 
     }

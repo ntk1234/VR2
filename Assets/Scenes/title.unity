@@ -193,7 +193,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Find Shark to take 3 photoes
+  m_Text: 'Find Shark to take 3 photoes
+
+
+    and clear 2 rubbishes'
 --- !u!222 &5029574
 CanvasRenderer:
   m_ObjectHideFlags: 0

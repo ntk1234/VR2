@@ -84,7 +84,6 @@ GameObject:
   - component: {fileID: 5519194563592135240}
   - component: {fileID: 5975251474237385075}
   - component: {fileID: 6387025401812287916}
-  - component: {fileID: 6780424211692014622}
   - component: {fileID: 3127887266644339856}
   - component: {fileID: 921614610457632527}
   m_Layer: 31
@@ -178,6 +177,10 @@ MonoBehaviour:
   maxTurnAngle: 30
   minPauseTime: 1
   maxPauseTime: 3
+  isWalk: 1
+  minSpeedIncrease: 0.5
+  maxSpeedIncrease: 1
+  recoveryTime: 2
 --- !u!64 &8185868016271568458
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -262,20 +265,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8192
---- !u!114 &6780424211692014622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4131595659466107864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5985a4ea1c76b1743a135bc33c787cb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 0
+  isTATK: 0
 --- !u!82 &3127887266644339856
 AudioSource:
   m_ObjectHideFlags: 0
@@ -650,6 +640,10 @@ MonoBehaviour:
   maxTurnAngle: 30
   minPauseTime: 1
   maxPauseTime: 3
+  isWalk: 1
+  minSpeedIncrease: 0.5
+  maxSpeedIncrease: 1
+  recoveryTime: 2
 --- !u!64 &7329283839220561748
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -734,6 +728,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8192
+  isTATK: 0
 --- !u!114 &8333065993384185410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,6 +1036,10 @@ MonoBehaviour:
   maxTurnAngle: 30
   minPauseTime: 1
   maxPauseTime: 3
+  isWalk: 1
+  minSpeedIncrease: 0.5
+  maxSpeedIncrease: 1
+  recoveryTime: 2
 --- !u!64 &6927876047257977323
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1125,6 +1124,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8192
+  isTATK: 0
 --- !u!114 &7858958423632931874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1364,6 +1364,10 @@ MonoBehaviour:
   maxTurnAngle: 30
   minPauseTime: 1
   maxPauseTime: 3
+  isWalk: 1
+  minSpeedIncrease: 0.5
+  maxSpeedIncrease: 1
+  recoveryTime: 2
 --- !u!64 &2051981900649003575
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1448,6 +1452,7 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 8192
+  isTATK: 0
 --- !u!114 &5771665344252789177
 MonoBehaviour:
   m_ObjectHideFlags: 0

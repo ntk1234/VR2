@@ -43,5 +43,27 @@ public class Bullet : MonoBehaviour
             sai.isTATK = true;
             Destroy(gameObject); // 碰撞到地图时销毁子弹对象
         }
+
+        if (collision.gameObject.CompareTag("Redfish"))
+        {
+
+            FishMovement fm = collision.gameObject.GetComponent<FishMovement>();
+            fm.isWalk = false;
+            Destroy(gameObject); // 碰撞到地图时销毁子弹对象
+        }
+        if (collision.gameObject.CompareTag("Modfish"))
+        {
+
+            FishMovement fm = collision.gameObject.GetComponent<FishMovement>();
+            fm.isWalk = false;
+            Destroy(gameObject); // 碰撞到地图时销毁子弹对象
+        }
+        if (collision.gameObject.CompareTag("Sfish"))
+        {
+
+            FishMovement fm = collision.gameObject.GetComponent<FishMovement>();
+            fm.isWalk = false;
+            Destroy(gameObject); // 碰撞到地图时销毁子弹对象
+        }
     }
 }

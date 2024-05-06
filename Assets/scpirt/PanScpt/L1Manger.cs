@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class L1Manger: MonoBehaviour
 {
     public int checkPressNum = 0;
+    public int rNUM;
     public Text CPSK;
+    public Text showR;
     public Text showSC; 
     public GameObject canpress;
     public GameObject NextPanel;
@@ -14,6 +16,8 @@ public class L1Manger: MonoBehaviour
     public bool isNestLevel = false;
     public MouseLock2 ML2;
     public gasHealth GS;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +34,8 @@ public class L1Manger: MonoBehaviour
     {
 
         CPSK.text = checkPressNum + "/ 3 Shark";
-     if (checkPressNum>=3)
+        showR.text = rNUM + "/ 2 Clear Rubbishes";
+        if (checkPressNum>=3&&rNUM>=2)
         {
             canpress.SetActive(true);
             PlayerPrefs.SetInt("LevelPassed", 1);

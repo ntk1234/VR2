@@ -6,7 +6,8 @@ public class InteractableObject1: MonoBehaviour
 
 
 {
-    public GameObject chest;
+    public L3Manger L3;
+    public bool ispressed = false;
 
     private void Start()
     {
@@ -29,8 +30,12 @@ public class InteractableObject1: MonoBehaviour
         {
             // 在這裡實現與物品調查相關的邏輯，例如顯示調查視窗、播放音效等
             Debug.Log("QQQQ1");
-            chest.SetActive(true);
-            
+            if (!ispressed)
+            {
+                L3.sfnum += 1;
+                ispressed = true;
+            }
+
         }
     }
 }
